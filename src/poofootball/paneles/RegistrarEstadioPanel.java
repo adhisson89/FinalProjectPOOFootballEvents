@@ -142,6 +142,7 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         GUISistemaPartido.estadiosRegistrados.add(new Estadio(txtCapacidad.getText(),
                 txtCiudad.getText(), txtNombre.getText()));
+        limpiarPanel();
         JOptionPane.showMessageDialog(null, "Se registró correctamente");
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -157,7 +158,12 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
             btnRegistrar.setEnabled(false);
         }
     }//GEN-LAST:event_txtCapacidadKeyReleased
-
+    
+    private void limpiarPanel(){
+        txtCapacidad.setText(null);
+        txtCiudad.setText(null);
+        txtNombre.setText(null);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
