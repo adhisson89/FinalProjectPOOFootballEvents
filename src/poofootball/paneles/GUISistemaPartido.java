@@ -27,8 +27,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     RegistrarEstadioPanel pnlRegistrarEstadio;
     RegistrarPartidoPanel pnlRegistrarPartido;
     RegistrarEquipoPanel pnlRegistrarEquipo;
+
     
     VerEstadiosPanel pnlVerEstadios;
+    VerPartidosPanel pnlVerPartido;
+    VerEquiposPanel pnlVerEquipo;
+
 
     /**
      * Creates new form GUISistemaPartido
@@ -47,9 +51,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarPersonas = new RegistrarPersonasPanel();
         pnlRegistrarEstadio = new RegistrarEstadioPanel();
         pnlRegistrarEquipo = new RegistrarEquipoPanel();
-        
+
         
         pnlVerEstadios = new VerEstadiosPanel();
+        pnlVerPartido = new VerPartidosPanel();
+        pnlVerEquipo = new VerEquiposPanel();
+
 
     }
 
@@ -75,10 +82,10 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         mnIngresarPartido = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        mnVerEquipos = new javax.swing.JMenuItem();
+        mnVerEstadio = new javax.swing.JMenuItem();
+        mnVerPersonas = new javax.swing.JMenuItem();
+        mnVerPartidos = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnApuestas = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -138,27 +145,32 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
         jMenu7.setText("Mostrar registros");
 
-        jMenuItem3.setText("Equipo");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnVerEquipos.setText("Equipo");
+        mnVerEquipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                mnVerEquiposActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem3);
+        jMenu7.add(mnVerEquipos);
 
-        jMenuItem4.setText("Estadio");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        mnVerEstadio.setText("Estadio");
+        mnVerEstadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                mnVerEstadioActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem4);
+        jMenu7.add(mnVerEstadio);
 
-        jMenuItem5.setText("Persona");
-        jMenu7.add(jMenuItem5);
+        mnVerPersonas.setText("Persona");
+        jMenu7.add(mnVerPersonas);
 
-        jMenuItem6.setText("Partido");
-        jMenu7.add(jMenuItem6);
+        mnVerPartidos.setText("Partido");
+        mnVerPartidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnVerPartidosActionPerformed(evt);
+            }
+        });
+        jMenu7.add(mnVerPartidos);
 
         jMenuBar1.add(jMenu7);
 
@@ -252,8 +264,20 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_mnIngresarEquipoActionPerformed
 
+    private void mnVerPartidosActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mnVerPartidosActionPerformed
+    {//GEN-HEADEREND:event_mnVerPartidosActionPerformed
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlVerPartido.setVisible(true);
+        pnlVerPartido.setSize(500,500);
+        add(pnlVerPartido);
+        revalidate();
+        repaint();
+        pnlVerPartido.actualizarTabla();
+    }//GEN-LAST:event_mnVerPartidosActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+
+    private void mnVerEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerEstadioActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerEstadios.setVisible(true);
@@ -262,26 +286,31 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         revalidate();
         repaint();
         
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_mnVerEstadioActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void mnVerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerEquiposActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-
+        pnlVerEquipo.setVisible(true);
+        pnlVerEquipo.setSize(700,700);
+        add(pnlVerEquipo);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_mnVerEquiposActionPerformed
 
     private void limpiarGUI() {
         pnlRegistrarPersonas.setVisible(false);
         pnlRegistrarEstadio.setVisible(false);
         pnlRegistrarEquipo.setVisible(false);
         pnlRegistrarPartido.setVisible(false);
-        
+        pnlVerEquipo.setVisible(false);
         pnlVerEstadios.setVisible(false);
+        pnlVerPartido.setVisible(false);
         
+
     }
-    
-    
+
+
     
     /**
      * @param args the command line arguments
@@ -329,15 +358,15 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenu mnApuestas;
     private javax.swing.JMenuItem mnIngresarEquipo;
     private javax.swing.JMenuItem mnIngresarEstadio;
     private javax.swing.JMenuItem mnIngresarPartido;
+    private javax.swing.JMenuItem mnVerEquipos;
+    private javax.swing.JMenuItem mnVerEstadio;
+    private javax.swing.JMenuItem mnVerPartidos;
+    private javax.swing.JMenuItem mnVerPersonas;
     private javax.swing.JMenu nuevo;
     // End of variables declaration//GEN-END:variables
 }
