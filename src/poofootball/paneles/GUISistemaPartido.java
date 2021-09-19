@@ -32,8 +32,6 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         registrarPartido = new RegistrarPartidoPanel();
         registrarPersonas = new RegistrarPersonasPanel();
         personasRegistradas = new ArrayList<Persona>();
-        //*************************************************
-        
     }
 
     /**
