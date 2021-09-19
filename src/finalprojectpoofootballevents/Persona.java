@@ -15,5 +15,14 @@ public class Persona {
     protected String apellido;
     protected String numCedula;
     protected int edad;
+
+    public Persona(String nombre, String apellido, String numCedula, int edad)
+    {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.numCedula = numCedula;
+        this.edad = edad;
+    }
+    
     
 }

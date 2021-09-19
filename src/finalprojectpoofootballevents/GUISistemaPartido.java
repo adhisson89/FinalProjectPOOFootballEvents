@@ -5,12 +5,18 @@
  */
 package finalprojectpoofootballevents;
 
+import java.util.ArrayList;
+import poofootball.paneles.RegistrarPersonasPanel;
+
 /**
  *
  * @author Bolivar Roman
  */
 public class GUISistemaPartido extends javax.swing.JFrame {
     DesignPreviewGUI DesignPreview;
+    ArrayList<Persona> personasRegistradas;
+    RegistrarPersonasPanel registrarPersonas;
+    
 
     /**
      * Creates new form GUISistemaPartido
@@ -18,6 +24,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     public GUISistemaPartido() {
         initComponents();
         DesignPreview = new DesignPreviewGUI();
+        registrarPersonas = new RegistrarPersonasPanel();
+        personasRegistradas = new ArrayList<Persona>();
     }
 
     /**
@@ -30,6 +38,10 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     private void initComponents()
     {
 
+        jMenu3 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         nuevo = new javax.swing.JMenu();
         mnIngresarEquipo = new javax.swing.JMenuItem();
@@ -37,7 +49,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         mnIngresarPartido = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnApuestas = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+
+        jMenu3.setText("jMenu3");
+
+        jMenu4.setText("File");
+        jMenuBar2.add(jMenu4);
+
+        jMenu5.setText("Edit");
+        jMenuBar2.add(jMenu5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +80,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
         mnApuestas.setText("Apuestas");
         jMenuBar1.add(mnApuestas);
+
+        jMenu6.setText("Registrar persona");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
 
         jMenu1.setText("Autores");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -92,6 +123,21 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         DesignPreview.setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu6MouseClicked
+    {//GEN-HEADEREND:event_jMenu6MouseClicked
+        // TODO add your handling code here:
+        limpiarGUI();
+        registrarPersonas.setVisible(true);
+        registrarPersonas.setSize(500, 500);
+        add(registrarPersonas);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void limpiarGUI() {
+        registrarPersonas.setVisible(false);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -130,7 +176,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu mnApuestas;
     private javax.swing.JMenuItem mnIngresarEquipo;
     private javax.swing.JMenuItem mnIngresarEstadio;
