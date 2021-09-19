@@ -14,29 +14,27 @@ import java.util.*;
 public class Equipo {
     
     private String nombre;
-    private boolean rachaAnterior;
+    private String anioFundacion;
 
-    public String getNombre()
-    {
+    public Equipo(String nombre, String anioFundacion) {
+        this.nombre = nombre;
+        this.anioFundacion = anioFundacion;
+    }
+
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre)
-    {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public boolean getRacha()
-    {
-        return rachaAnterior;
+    public String getAnioFundacion() {
+        return anioFundacion;
     }
 
-    public void setRacha(boolean racha)
-    {
-        this.rachaAnterior = racha;
+    public void setAnioFundacion(String anioFundacion) {
+        this.anioFundacion = anioFundacion;
     }
-    
-    private void determinarPartidoAnterior(boolean resultadoAnterior) {
-        this.rachaAnterior = resultadoAnterior;
-    }
+
 }
