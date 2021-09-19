@@ -7,7 +7,7 @@ package poofootball.paneles;
 
 import finalprojectpoofootballevents.*;
 import java.util.ArrayList;
-import poofootball.paneles.RegistrarPersonasPanel;
+import poofootball.paneles.*;
 
 /**
  *
@@ -21,7 +21,6 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     static ArrayList<Apuesta> apuestasRealizadas;
     static ArrayList<Estadio> estadiosRegistrados;
     RegistrarPersonasPanel registrarPersonas;
-    
 
     /**
      * Creates new form GUISistemaPartido
@@ -47,14 +46,21 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         nuevo = new javax.swing.JMenu();
         mnIngresarEquipo = new javax.swing.JMenuItem();
         mnIngresarEstadio = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnIngresarPartido = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnApuestas = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -64,6 +70,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
         jMenu5.setText("Edit");
         jMenuBar2.add(jMenu5);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,26 +83,49 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         mnIngresarEstadio.setText("Estadio");
         nuevo.add(mnIngresarEstadio);
 
+        jMenuItem2.setText("Persona");
+        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jMenuItem2MouseClicked(evt);
+            }
+        });
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        nuevo.add(jMenuItem2);
+
         mnIngresarPartido.setText("Partido");
         nuevo.add(mnIngresarPartido);
 
         jMenuBar1.add(nuevo);
+
+        jMenu7.setText("Mostrar registros");
+
+        jMenuItem3.setText("Equipo");
+        jMenu7.add(jMenuItem3);
+
+        jMenuItem4.setText("Estadio");
+        jMenu7.add(jMenuItem4);
+
+        jMenuItem5.setText("Persona");
+        jMenu7.add(jMenuItem5);
+
+        jMenuItem6.setText("Partido");
+        jMenu7.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu7);
 
         jMenu2.setText("Vender Boleto");
         jMenuBar1.add(jMenu2);
 
         mnApuestas.setText("Apuestas");
         jMenuBar1.add(mnApuestas);
-
-        jMenu6.setText("Registrar persona");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu6);
 
         jMenu1.setText("Autores");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter()
@@ -128,8 +159,14 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         DesignPreview.setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu6MouseClicked
-    {//GEN-HEADEREND:event_jMenu6MouseClicked
+    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem2MouseClicked
+    {//GEN-HEADEREND:event_jMenuItem2MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuItem2MouseClicked
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem2ActionPerformed
+    {//GEN-HEADEREND:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
         registrarPersonas.setVisible(true);
@@ -137,7 +174,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         add(registrarPersonas);
         revalidate();
         repaint();
-    }//GEN-LAST:event_jMenu6MouseClicked
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void limpiarGUI() {
         registrarPersonas.setVisible(false);
@@ -184,9 +221,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenu mnApuestas;
     private javax.swing.JMenuItem mnIngresarEquipo;
     private javax.swing.JMenuItem mnIngresarEstadio;

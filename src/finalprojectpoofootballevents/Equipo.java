@@ -14,8 +14,7 @@ import java.util.*;
 public class Equipo {
     
     private String nombre;
-    private ArrayList<Boolean> racha;
-    //private boolean rachaGanadora[];
+    private boolean rachaAnterior;
 
     public String getNombre()
     {
@@ -27,17 +26,17 @@ public class Equipo {
         this.nombre = nombre;
     }
 
-    public ArrayList<Boolean> getRacha()
+    public boolean getRacha()
     {
-        return racha;
+        return rachaAnterior;
     }
 
-    public void setRacha(ArrayList<Boolean> racha)
+    public void setRacha(boolean racha)
     {
-        this.racha = racha;
+        this.rachaAnterior = racha;
     }
     
     private void determinarPartidoAnterior(boolean resultadoAnterior) {
-        racha.add(resultadoAnterior);
+        this.rachaAnterior = resultadoAnterior;
     }
 }
