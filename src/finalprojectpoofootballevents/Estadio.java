@@ -12,8 +12,38 @@ package finalprojectpoofootballevents;
 public class Estadio {
     
     private String capacidad;
-    private String localidad;
+    
     private String ciudad;
     private String nombreEstadio;
-    
+
+    public Estadio(String capacidad, String ciudad, String nombreEstadio) {
+        this.capacidad = capacidad;
+        this.ciudad = ciudad;
+        this.nombreEstadio = nombreEstadio;
+    }
+
+    public String getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(String capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getNombreEstadio() {
+        return nombreEstadio;
+    }
+
+    public void setNombreEstadio(String nombreEstadio) {
+        this.nombreEstadio = nombreEstadio;
+    }
+
 }
