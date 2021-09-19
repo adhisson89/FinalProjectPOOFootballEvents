@@ -16,24 +16,34 @@ import poofootball.paneles.*;
 public class GUISistemaPartido extends javax.swing.JFrame {
     DesignPreviewGUI DesignPreview;
 
-    RegistrarPersonasPanel registrarPersonas;
+    RegistrarPersonasPanel pnlRegistrarPersonas;
     RegistrarEstadioPanel pnlRegistrarEstadio;
+    RegistrarPartidoPanel pnlRegistrarPartido;
+    RegistrarEquipoPanel pnlRegistrarEquipo;
+    
     
     static ArrayList<Persona> personasRegistradas;
     static ArrayList<Partido> partidosRegistrados;
     static ArrayList<Equipo> equiposRegistrados;
     static ArrayList<Apuesta> apuestasRealizadas;
     static ArrayList<Estadio> estadiosRegistrados;
+
+    
+
     /**
      * Creates new form GUISistemaPartido
      */
     public GUISistemaPartido() {
         initComponents();
         DesignPreview = new DesignPreviewGUI();
-        registrarPersonas = new RegistrarPersonasPanel();
+        pnlRegistrarPartido = new RegistrarPartidoPanel();
+        pnlRegistrarPersonas = new RegistrarPersonasPanel();
+        pnlRegistrarEstadio = new RegistrarEstadioPanel();
+        pnlRegistrarEquipo = new RegistrarEquipoPanel();
+        
         personasRegistradas = new ArrayList<Persona>();
         
-        pnlRegistrarEstadio = new RegistrarEstadioPanel();
+
         
     }
 
@@ -82,6 +92,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         nuevo.setText("Ingresar");
 
         mnIngresarEquipo.setText("Equipo");
+        mnIngresarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIngresarEquipoActionPerformed(evt);
+            }
+        });
         nuevo.add(mnIngresarEquipo);
 
         mnIngresarEstadio.setText("Estadio");
@@ -106,6 +121,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         nuevo.add(jMenuItem2);
 
         mnIngresarPartido.setText("Partido");
+        mnIngresarPartido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIngresarPartidoActionPerformed(evt);
+            }
+        });
         nuevo.add(mnIngresarPartido);
 
         jMenuBar1.add(nuevo);
@@ -172,12 +192,13 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
-        registrarPersonas.setVisible(true);
-        registrarPersonas.setSize(500, 500);
-        add(registrarPersonas);
+        pnlRegistrarPersonas.setVisible(true);
+        pnlRegistrarPersonas.setSize(500, 500);
+        add(pnlRegistrarPersonas);
         revalidate();
         repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
     private void mnIngresarEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIngresarEstadioActionPerformed
         // TODO add your handling code here:
@@ -189,10 +210,34 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_mnIngresarEstadioActionPerformed
 
+    private void mnIngresarPartidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mnIngresarPartidoActionPerformed
+    {//GEN-HEADEREND:event_mnIngresarPartidoActionPerformed
+
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlRegistrarPartido.setVisible(true);
+        pnlRegistrarPartido.setSize(500, 500);
+        add(pnlRegistrarPartido);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_mnIngresarPartidoActionPerformed
+
+    private void mnIngresarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIngresarEquipoActionPerformed
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlRegistrarEquipo.setVisible(true);
+        pnlRegistrarEquipo.setSize(500,500);
+        add(pnlRegistrarEquipo);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_mnIngresarEquipoActionPerformed
+
+
     private void limpiarGUI() {
-        registrarPersonas.setVisible(false);
+        pnlRegistrarPersonas.setVisible(false);
         pnlRegistrarEstadio.setVisible(false);
-        
+        pnlRegistrarEquipo.setVisible(false);
+        pnlRegistrarPartido.setVisible(false);
     }
     
     /**
