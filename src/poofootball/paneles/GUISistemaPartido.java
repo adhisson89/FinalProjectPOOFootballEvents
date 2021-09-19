@@ -42,9 +42,6 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarEquipo = new RegistrarEquipoPanel();
         
         personasRegistradas = new ArrayList<Persona>();
-        
-
-        
     }
 
     /**
