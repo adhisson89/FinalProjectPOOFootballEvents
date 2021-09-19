@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package finalprojectpoofootballevents;
+package poofootball.paneles;
 
+import finalprojectpoofootballevents.DesignPreviewGUI;
+import finalprojectpoofootballevents.Persona;
 import java.util.ArrayList;
 import poofootball.paneles.RegistrarPersonasPanel;
 
@@ -14,7 +16,7 @@ import poofootball.paneles.RegistrarPersonasPanel;
  */
 public class GUISistemaPartido extends javax.swing.JFrame {
     DesignPreviewGUI DesignPreview;
-    ArrayList<Persona> personasRegistradas;
+    static ArrayList<Persona> personasRegistradas;
     RegistrarPersonasPanel registrarPersonas;
     
 
