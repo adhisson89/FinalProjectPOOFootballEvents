@@ -5,6 +5,8 @@
  */
 package finalprojectpoofootballevents;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniela Roman
@@ -12,5 +14,12 @@ package finalprojectpoofootballevents;
 public class Apuesta {
     
     private double montoApuesta;
+    
+    private ArrayList <Persona> personas;
+
+    public Apuesta(double montoApuesta) {
+        this.montoApuesta = montoApuesta;
+    }
+    
     
 }

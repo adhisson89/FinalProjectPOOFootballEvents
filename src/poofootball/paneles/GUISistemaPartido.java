@@ -5,7 +5,7 @@
  */
 package poofootball.paneles;
 
-import finalprojectpoofootballevents.Persona;
+import finalprojectpoofootballevents.*;
 import java.util.ArrayList;
 import poofootball.paneles.RegistrarPersonasPanel;
 
@@ -16,6 +16,10 @@ import poofootball.paneles.RegistrarPersonasPanel;
 public class GUISistemaPartido extends javax.swing.JFrame {
     DesignPreviewGUI DesignPreview;
     static ArrayList<Persona> personasRegistradas;
+    static ArrayList<Partido> partidosRegistrados;
+    static ArrayList<Equipo> equiposRegistrados;
+    static ArrayList<Apuesta> apuestasRealizadas;
+    static ArrayList<Estadio> estadiosRegistrados;
     RegistrarPersonasPanel registrarPersonas;
     
 
