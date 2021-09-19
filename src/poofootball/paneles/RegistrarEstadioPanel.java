@@ -140,7 +140,7 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.estadiosRegistrados.add(new Estadio(txtCapacidad.getText(),
+        GUISistemaPartido.listaEstadiosRegistrados.add(new Estadio(txtCapacidad.getText(),
                 txtCiudad.getText(), txtNombre.getText()));
         limpiarPanel();
         JOptionPane.showMessageDialog(null, "Se registró correctamente");

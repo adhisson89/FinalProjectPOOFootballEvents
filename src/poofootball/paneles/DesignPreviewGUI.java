@@ -81,7 +81,7 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
 
     private void btnDanielaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDanielaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"Hola Bienvenido a mi Proyecto" );
+        JOptionPane.showMessageDialog(rootPane,"Hola, mi usuario de GitHub es danielaro2" );
     }//GEN-LAST:event_btnDanielaActionPerformed
 
     private void btnJoseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJoseActionPerformed

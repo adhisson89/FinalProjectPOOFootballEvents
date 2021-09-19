@@ -127,7 +127,7 @@ public class RegistrarEquipoPanel extends javax.swing.JPanel {
 
     private void btnRegistrarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEquipoActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.equiposRegistrados.add(new Equipo (txtNombreEquipo.getText(), txtAnioFundacion.getText()));
+        GUISistemaPartido.listaEquiposRegistrados.add(new Equipo (txtNombreEquipo.getText(), txtAnioFundacion.getText()));
         JOptionPane.showMessageDialog(null, "Se registró correctamente");  
     }//GEN-LAST:event_btnRegistrarEquipoActionPerformed
     

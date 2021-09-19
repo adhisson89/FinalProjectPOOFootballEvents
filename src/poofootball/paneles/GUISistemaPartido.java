@@ -11,37 +11,41 @@ import poofootball.paneles.*;
 
 /**
  *
- * @author Bolivar Roman
+ * @author Daniela Roman
  */
 public class GUISistemaPartido extends javax.swing.JFrame {
+
     DesignPreviewGUI DesignPreview;
+
+    static ArrayList<Persona> listaPersonasRegistradas;
+    static ArrayList<Partido> listaPartidosRegistrados;
+    static ArrayList<Equipo> listaEquiposRegistrados;
+    static ArrayList<Apuesta> listaApuestasRealizadas;
+    static ArrayList<Estadio> listaEstadiosRegistrados;
 
     RegistrarPersonasPanel pnlRegistrarPersonas;
     RegistrarEstadioPanel pnlRegistrarEstadio;
     RegistrarPartidoPanel pnlRegistrarPartido;
     RegistrarEquipoPanel pnlRegistrarEquipo;
-    
-    
-    static ArrayList<Persona> personasRegistradas;
-    static ArrayList<Partido> partidosRegistrados;
-    static ArrayList<Equipo> equiposRegistrados;
-    static ArrayList<Apuesta> apuestasRealizadas;
-    static ArrayList<Estadio> estadiosRegistrados;
-
-    
 
     /**
      * Creates new form GUISistemaPartido
      */
     public GUISistemaPartido() {
         initComponents();
+        
+        listaPersonasRegistradas = new ArrayList<Persona>();
+        listaPartidosRegistrados = new ArrayList<Partido>();
+        listaEquiposRegistrados = new ArrayList<Equipo>();
+        listaApuestasRealizadas = new ArrayList<Apuesta>();
+        listaEstadiosRegistrados = new ArrayList<Estadio>();
+
         DesignPreview = new DesignPreviewGUI();
         pnlRegistrarPartido = new RegistrarPartidoPanel();
         pnlRegistrarPersonas = new RegistrarPersonasPanel();
         pnlRegistrarEstadio = new RegistrarEstadioPanel();
         pnlRegistrarEquipo = new RegistrarEquipoPanel();
-        
-        personasRegistradas = new ArrayList<Persona>();
+
     }
 
     /**
@@ -211,6 +215,10 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_mnIngresarPartidoActionPerformed
 
         // TODO add your handling code here:
+        pnlRegistrarPartido.actualizarListaEquipos();
+        pnlRegistrarPartido.actualizarListaEquiposGanadores();
+        pnlRegistrarPartido.actualizarListaEstadios();
+        
         limpiarGUI();
         pnlRegistrarPartido.setVisible(true);
         pnlRegistrarPartido.setSize(500, 500);
@@ -236,6 +244,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarEquipo.setVisible(false);
         pnlRegistrarPartido.setVisible(false);
     }
+    
+    
     
     /**
      * @param args the command line arguments

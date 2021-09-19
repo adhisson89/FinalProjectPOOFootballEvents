@@ -157,7 +157,7 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.personasRegistradas.add(new Persona(txtNombre.getText(), txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
+        GUISistemaPartido.listaPersonasRegistradas.add(new Persona(txtNombre.getText(), txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
 
         //Comentario de prueba
 

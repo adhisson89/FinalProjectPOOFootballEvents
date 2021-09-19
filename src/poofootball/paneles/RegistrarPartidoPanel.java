@@ -6,6 +6,7 @@
 package poofootball.paneles;
 
 import finalprojectpoofootballevents.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,35 +25,35 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
         actualizarListaEstadios();
     }
     
-    private void actualizarListaEquipos() {
+    public void actualizarListaEquipos() {
         cmbEquipo1.removeAllItems();
         cmbEquipo2.removeAllItems();
       try{
-            for(Equipo equipo : GUISistemaPartido.equiposRegistrados) {
+            for(Equipo equipo : GUISistemaPartido.listaEquiposRegistrados) {
             cmbEquipo1.addItem(equipo.getNombre());
             cmbEquipo2.addItem(equipo.getNombre());
             }
       } catch (Exception e){
-          e.getStackTrace();
+          JOptionPane.showMessageDialog(null, "Error "+e.getStackTrace());
       }
     }
     
-    private void actualizarListaEstadios() {
+    public void actualizarListaEstadios() {
         cmbEstadio.removeAllItems();
         try {
-            for(Estadio estadio : GUISistemaPartido.estadiosRegistrados) {
+            for(Estadio estadio : GUISistemaPartido.listaEstadiosRegistrados) {
             cmbEstadio.addItem(estadio.getNombreEstadio());
         }
         }catch (Exception e){
-            e.getStackTrace();
+           JOptionPane.showMessageDialog(null, "Error "+e.getStackTrace());
         }
     }
     
-    private void actualizarListaEquiposGanadores() {
+    public void actualizarListaEquiposGanadores() {
         cmbEquipoGanador.removeAllItems();
         if(cmbEquipo1.getSelectedIndex() != -1 && cmbEquipo2.getSelectedIndex() != -1) {
-            cmbEquipoGanador.addItem(GUISistemaPartido.equiposRegistrados.get(cmbEquipo1.getSelectedIndex()).getNombre());
-            cmbEquipoGanador.addItem(GUISistemaPartido.equiposRegistrados.get(cmbEquipo2.getSelectedIndex()).getNombre());
+            cmbEquipoGanador.addItem(GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo1.getSelectedIndex()).getNombre());
+            cmbEquipoGanador.addItem(GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo2.getSelectedIndex()).getNombre());
         }
     }
 
@@ -229,19 +230,20 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
     private void btnRegistrarPartidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegistrarPartidoActionPerformed
     {//GEN-HEADEREND:event_btnRegistrarPartidoActionPerformed
         // TODO add your handling code here:
+        
         String fecha = txtFecha.getText();
         String hora = txtHora.getText();
         Equipo ganador = null;
-        Equipo equipo1 = GUISistemaPartido.equiposRegistrados.get(cmbEquipo1.getSelectedIndex());
-        Equipo equipo2 = GUISistemaPartido.equiposRegistrados.get(cmbEquipo2.getSelectedIndex());
+        Equipo equipo1 = GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo1.getSelectedIndex());
+        Equipo equipo2 = GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo2.getSelectedIndex());
         if(cmbEquipoGanador.getSelectedIndex() == 0) {
             ganador = equipo1;
         } else if(cmbEquipoGanador.getSelectedIndex() == 1) {
             ganador = equipo2;
         }
-        Estadio estadio = GUISistemaPartido.estadiosRegistrados.get(cmbEstadio.getSelectedIndex());
+        Estadio estadio = GUISistemaPartido.listaEstadiosRegistrados.get(cmbEstadio.getSelectedIndex());
         Partido partido = new Partido(fecha, ganador, hora, equipo1, equipo2, estadio);
-        GUISistemaPartido.partidosRegistrados.add(partido);
+        GUISistemaPartido.listaPartidosRegistrados.add(partido);
     }//GEN-LAST:event_btnRegistrarPartidoActionPerformed
 
     private void cmbEquipo1ItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_cmbEquipo1ItemStateChanged
