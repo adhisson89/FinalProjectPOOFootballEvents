@@ -5,7 +5,6 @@
  */
 package poofootball.paneles;
 
-import finalprojectpoofootballevents.DesignPreviewGUI;
 import finalprojectpoofootballevents.Persona;
 import java.util.ArrayList;
 import poofootball.paneles.RegistrarPersonasPanel;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package finalprojectpoofootballevents;
+package poofootball.paneles;
 
 import javax.swing.JOptionPane;
 
@@ -28,8 +28,7 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         btnAdhisson = new javax.swing.JButton();
         btnDaniela = new javax.swing.JButton();
@@ -40,19 +39,15 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         btnAdhisson.setText("Adhisson Cedeño");
 
         btnDaniela.setText("Daniela Román");
-        btnDaniela.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnDaniela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDanielaActionPerformed(evt);
             }
         });
 
         btnJose.setText("José Guzmán");
-        btnJose.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnJose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJoseActionPerformed(evt);
             }
         });
