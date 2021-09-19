@@ -21,6 +21,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     static ArrayList<Apuesta> apuestasRealizadas;
     static ArrayList<Estadio> estadiosRegistrados;
     RegistrarPersonasPanel registrarPersonas;
+    RegistrarPartidoPanel registrarPartido;
 
     /**
      * Creates new form GUISistemaPartido
@@ -28,8 +29,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     public GUISistemaPartido() {
         initComponents();
         DesignPreview = new DesignPreviewGUI();
+        registrarPartido = new RegistrarPartidoPanel();
         registrarPersonas = new RegistrarPersonasPanel();
         personasRegistradas = new ArrayList<Persona>();
+        //*************************************************
+        
     }
 
     /**
@@ -101,6 +105,13 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         nuevo.add(jMenuItem2);
 
         mnIngresarPartido.setText("Partido");
+        mnIngresarPartido.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                mnIngresarPartidoActionPerformed(evt);
+            }
+        });
         nuevo.add(mnIngresarPartido);
 
         jMenuBar1.add(nuevo);
@@ -175,6 +186,18 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         revalidate();
         repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void mnIngresarPartidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mnIngresarPartidoActionPerformed
+    {//GEN-HEADEREND:event_mnIngresarPartidoActionPerformed
+
+        // TODO add your handling code here:
+        limpiarGUI();
+        registrarPartido.setVisible(true);
+        registrarPartido.setSize(500, 500);
+        add(registrarPartido);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_mnIngresarPartidoActionPerformed
 
     private void limpiarGUI() {
         registrarPersonas.setVisible(false);

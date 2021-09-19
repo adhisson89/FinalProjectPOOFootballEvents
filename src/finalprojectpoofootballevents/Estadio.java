@@ -15,5 +15,16 @@ public class Estadio {
     private String localidad;
     private String ciudad;
     private String nombreEstadio;
+
+    public Estadio(String nombreEstadio)
+    {
+        this.nombreEstadio = nombreEstadio;
+    }
+
+    public String getNombreEstadio()
+    {
+        return nombreEstadio;
+    }
+    
     
 }

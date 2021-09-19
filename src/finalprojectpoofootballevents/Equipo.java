@@ -16,6 +16,11 @@ public class Equipo {
     private String nombre;
     private boolean rachaAnterior;
 
+    public Equipo(String nombre)
+    {
+        this.nombre = nombre;
+    }
+
     public String getNombre()
     {
         return nombre;

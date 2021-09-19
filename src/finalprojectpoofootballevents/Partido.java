@@ -12,59 +12,51 @@ package finalprojectpoofootballevents;
 public class Partido {
     
     private String fecha;
-    private String resultado;
+    private Equipo resultadoGanador;
     private String horaPartido;
-    private String equipo1;
-    private String equipo2;
+    private Equipo equipo1;
+    private Equipo equipo2;
+    private Estadio estadio;
 
-    public Partido(String fecha, String resultado, String horaPartido, String equipo1, String equipo2) {
+    public Partido(String fecha, Equipo resultadoGanador, String horaPartido, Equipo equipo1, Equipo equipo2, Estadio estadio)
+    {
         this.fecha = fecha;
-        this.resultado = resultado;
+        this.resultadoGanador = resultadoGanador;
         this.horaPartido = horaPartido;
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
+        this.estadio = estadio;
     }
 
-    public String getFecha() {
+    public String getFecha()
+    {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public Equipo getResultadoGanador()
+    {
+        return resultadoGanador;
     }
 
-    public String getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
-    }
-
-    public String getHoraPartido() {
+    public String getHoraPartido()
+    {
         return horaPartido;
     }
 
-    public void setHoraPartido(String horaPartido) {
-        this.horaPartido = horaPartido;
-    }
-
-    public String getEquipo1() {
+    public Equipo getEquipo1()
+    {
         return equipo1;
     }
 
-    public void setEquipo1(String equipo1) {
-        this.equipo1 = equipo1;
-    }
-
-    public String getEquipo2() {
+    public Equipo getEquipo2()
+    {
         return equipo2;
     }
 
-    public void setEquipo2(String equipo2) {
-        this.equipo2 = equipo2;
+    public Estadio getEstadio()
+    {
+        return estadio;
     }
-    
-    
+
     
 }
