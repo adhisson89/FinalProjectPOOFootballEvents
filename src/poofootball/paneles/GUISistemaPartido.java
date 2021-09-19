@@ -27,6 +27,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     RegistrarEstadioPanel pnlRegistrarEstadio;
     RegistrarPartidoPanel pnlRegistrarPartido;
     RegistrarEquipoPanel pnlRegistrarEquipo;
+    
+    VerEstadiosPanel pnlVerEstadios;
 
     /**
      * Creates new form GUISistemaPartido
@@ -45,6 +47,9 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarPersonas = new RegistrarPersonasPanel();
         pnlRegistrarEstadio = new RegistrarEstadioPanel();
         pnlRegistrarEquipo = new RegistrarEquipoPanel();
+        
+        
+        pnlVerEstadios = new VerEstadiosPanel();
 
     }
 
@@ -137,6 +142,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         jMenu7.add(jMenuItem3);
 
         jMenuItem4.setText("Estadio");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem4);
 
         jMenuItem5.setText("Persona");
@@ -237,12 +247,26 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_mnIngresarEquipoActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlVerEstadios.setVisible(true);
+        pnlVerEstadios.setSize(500,500);
+        add(pnlVerEstadios);
+        revalidate();
+        repaint();
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
 
     private void limpiarGUI() {
         pnlRegistrarPersonas.setVisible(false);
         pnlRegistrarEstadio.setVisible(false);
         pnlRegistrarEquipo.setVisible(false);
         pnlRegistrarPartido.setVisible(false);
+        
+        pnlVerEstadios.setVisible(false);
+        
     }
     
     
