@@ -10,12 +10,14 @@ package finalprojectpoofootballevents;
  * @author Bolivar Roman
  */
 public class GUISistemaPartido extends javax.swing.JFrame {
+    DesignPreviewGUI DesignPreview;
 
     /**
      * Creates new form GUISistemaPartido
      */
     public GUISistemaPartido() {
         initComponents();
+        DesignPreview = new DesignPreviewGUI();
     }
 
     /**
@@ -25,7 +27,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         nuevo = new javax.swing.JMenu();
@@ -34,6 +37,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         mnIngresarPartido = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnApuestas = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +60,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         mnApuestas.setText("Apuestas");
         jMenuBar1.add(mnApuestas);
 
+        jMenu1.setText("Autores");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,6 +85,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu1MouseClicked
+    {//GEN-HEADEREND:event_jMenu1MouseClicked
+        // TODO add your handling code here:
+        DesignPreview.setVisible(true);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -108,6 +128,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnApuestas;

@@ -28,25 +28,34 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         btnAdhisson = new javax.swing.JButton();
         btnDaniela = new javax.swing.JButton();
         btnJose = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Design Preview [GUI]");
 
         btnAdhisson.setText("Adhisson Cedeño");
 
         btnDaniela.setText("Daniela Román");
-        btnDaniela.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btnDaniela.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 btnDanielaActionPerformed(evt);
             }
         });
 
         btnJose.setText("José Guzmán");
+        btnJose.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnJoseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +88,12 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this,"Hola Bienvenido a mi Proyecto" );
     }//GEN-LAST:event_btnDanielaActionPerformed
+
+    private void btnJoseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJoseActionPerformed
+    {//GEN-HEADEREND:event_btnJoseActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Hola, mi usuario de Github es joseguzmann\n https://github.com/joseguzmann");
+    }//GEN-LAST:event_btnJoseActionPerformed
 
     /**
      * @param args the command line arguments
