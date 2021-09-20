@@ -325,7 +325,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
         nuevaApuesta = new Apuesta(Double.parseDouble(txtValor.getText()),
                 (Equipo) cmbEquipos.getSelectedItem(), apuesta);
         
-        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroApuestas.noabrir");) {
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroApuestas.txt");) {
             salida.writeObject(nuevaApuesta);
             JOptionPane.showMessageDialog(null, "La apuesta se realizó correctamente");
         } catch (IOException ioe) {

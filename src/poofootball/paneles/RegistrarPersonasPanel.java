@@ -229,7 +229,7 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         GUISistemaPartido.listaPersonasRegistradas.add(new Persona(txtNombre.getText(),
                 txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
-        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPersonas.noabrir");) {
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPersonas.txt");) {
             salida.writeObject(new Persona(txtNombre.getText(),
                 txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");

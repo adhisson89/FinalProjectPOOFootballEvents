@@ -173,7 +173,7 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
         GUISistemaPartido.listaEstadiosRegistrados.add(new Estadio(txtCapacidad.getText(),
                 txtCiudad.getText(), txtNombre.getText()));
         limpiarPanel();
-        try ( MiObjectOutputStream salida = new MiObjectOutputStream("registroEstadios.noabrir");) {
+        try ( MiObjectOutputStream salida = new MiObjectOutputStream("registroEstadios.txt");) {
             salida.writeObject(new Estadio(txtCapacidad.getText(),
                 txtCiudad.getText(), txtNombre.getText()));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");

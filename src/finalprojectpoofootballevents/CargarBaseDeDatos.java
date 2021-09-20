@@ -17,10 +17,11 @@ import poofootball.paneles.GUISistemaPartido;
  */
 public class CargarBaseDeDatos {
     
-    public static void llenarDatos() {
+    public static void llenarDatosPersonas() {
         
         try {
-            FileInputStream fisPer = new FileInputStream("registroPersonas.noabrir");
+            
+            FileInputStream fisPer = new FileInputStream("registroPersonas.txt");
             ObjectInputStream oisPer = new ObjectInputStream(fisPer);
             Persona p = (Persona) oisPer.readObject();
             GUISistemaPartido.listaPersonasRegistradas.add(p);
@@ -30,7 +31,18 @@ public class CargarBaseDeDatos {
             }
             oisPer.close();
             
-            FileInputStream fisPart = new FileInputStream("registroPartidos.noabrir");
+        } catch (IOException ioe) {
+            ioe.getStackTrace();
+        } catch (ClassNotFoundException cnt) {
+            cnt.getStackTrace();
+        }
+    }
+    
+    public static void llenarDatosPartidos() {
+        
+        try {
+
+            FileInputStream fisPart = new FileInputStream("registroPartidos.txt");
             ObjectInputStream oisPart = new ObjectInputStream(fisPart);
             Partido pa = (Partido) oisPart.readObject();
             GUISistemaPartido.listaPartidosRegistrados.add(pa);
@@ -39,8 +51,19 @@ public class CargarBaseDeDatos {
                 GUISistemaPartido.listaPartidosRegistrados.add(pa);
             }
             oisPart.close();
-            
-            FileInputStream fisEqu = new FileInputStream("registroEquipos.noabrir");
+  
+        } catch (IOException ioe) {
+            ioe.getStackTrace();
+        } catch (ClassNotFoundException cnt) {
+            cnt.getStackTrace();
+        }
+    }
+    
+    public static void llenarDatosEquipos() {
+        
+        try {
+
+            FileInputStream fisEqu = new FileInputStream("registroEquipos.txt");
             ObjectInputStream oisEqu = new ObjectInputStream(fisEqu);
             Equipo eq = (Equipo) oisEqu.readObject();
             GUISistemaPartido.listaEquiposRegistrados.add(eq);
@@ -49,45 +72,74 @@ public class CargarBaseDeDatos {
                 GUISistemaPartido.listaEquiposRegistrados.add(eq);
             }
             oisEqu.close();
-            
-            FileInputStream fisApu = new FileInputStream("registroApuestas.noabrir");
+
+        } catch (IOException ioe) {
+            ioe.getStackTrace();
+        } catch (ClassNotFoundException cnt) {
+            cnt.getStackTrace();
+        }
+    }
+    
+    public static void llenarDatosApuestas() {
+        try {
+
+            FileInputStream fisApu = new FileInputStream("registroApuestas.txt");
             ObjectInputStream oisApu = new ObjectInputStream(fisApu);
             Apuesta ap = (Apuesta) oisApu.readObject();
             GUISistemaPartido.listaApuestasRealizadas.add(ap);
-            while (eq != null) {
+            while (ap != null) {
                 ap = (Apuesta) oisApu.readObject();
                 GUISistemaPartido.listaApuestasRealizadas.add(ap);
             }
             oisApu.close();
             
-            FileInputStream fisEst = new FileInputStream("registroEstadios.noabrir");
+        } catch (IOException ioe) {
+            ioe.getStackTrace();
+        } catch (ClassNotFoundException cnt) {
+            cnt.getStackTrace();
+        }
+    }
+    
+    public static void llenarDatosEstadios() {
+        
+        try {
+
+            FileInputStream fisEst = new FileInputStream("registroEstadios.txt");
             ObjectInputStream oisEst = new ObjectInputStream(fisEst);
             Estadio es = (Estadio) oisEst.readObject();
             GUISistemaPartido.listaEstadiosRegistrados.add(es);
-            while (eq != null) {
+            while (es != null) {
                 es = (Estadio) oisEst.readObject();
                 GUISistemaPartido.listaEstadiosRegistrados.add(es);
             }
             oisEst.close();
-            
-            FileInputStream fisBol = new FileInputStream("registroBoletos.noabrir");
+
+        } catch (IOException ioe) {
+            ioe.getStackTrace();
+        } catch (ClassNotFoundException cnt) {
+            cnt.getStackTrace();
+        }
+    }
+    
+    public static void llenarDatosBoletos() {
+        
+        try {
+
+            FileInputStream fisBol = new FileInputStream("registroBoletos.txt");
             ObjectInputStream oisBol = new ObjectInputStream(fisBol);
             Boleto bo = (Boleto) oisBol.readObject();
             GUISistemaPartido.listaBoletosVendidos.add(bo);
-            while (eq != null) {
+            while (bo != null) {
                 bo = (Boleto) oisBol.readObject();
                 GUISistemaPartido.listaBoletosVendidos.add(bo);
             }
             oisBol.close();
             
         } catch (IOException ioe) {
-            JOptionPane.showMessageDialog(null, ioe);
+            ioe.getStackTrace();
         } catch (ClassNotFoundException cnt) {
-            JOptionPane.showMessageDialog(null, cnt);
+            cnt.getStackTrace();
         }
-
-        
-        
     }
     
     

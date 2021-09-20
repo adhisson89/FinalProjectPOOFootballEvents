@@ -223,7 +223,7 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         GUISistemaPartido.listaBoletosVendidos.add(new Boleto(GUISistemaPartido.listaBoletosVendidos.size() + 1, persona.getEdad()));
         
-        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroBoletos.noabrir");) {
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroBoletos.txt");) {
             salida.writeObject(new Boleto(GUISistemaPartido.listaBoletosVendidos.size() + 1, persona.getEdad()));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
             

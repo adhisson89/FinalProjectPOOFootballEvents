@@ -290,7 +290,7 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel {
         Estadio estadio = GUISistemaPartido.listaEstadiosRegistrados.get(cmbEstadio.getSelectedIndex());
         Partido partido = new Partido(fecha, ganador, hora, equipo1, equipo2, estadio);
         GUISistemaPartido.listaPartidosRegistrados.add(partido);
-        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPartidos.noabrir");) {
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPartidos.txt");) {
             salida.writeObject(partido);
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
             

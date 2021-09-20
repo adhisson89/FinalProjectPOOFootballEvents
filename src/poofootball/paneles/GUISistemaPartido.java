@@ -42,9 +42,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
      */
     public GUISistemaPartido() {
         initComponents();
-        
-        CargarBaseDeDatos.llenarDatos();
-        
+
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
         
@@ -68,6 +66,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         
         pnlVenderBoletos = new VenderBoletosPanel();
         pnlApuestas = new ApuestasPanel();
+        
+        CargarBaseDeDatos.llenarDatosApuestas();
+        CargarBaseDeDatos.llenarDatosBoletos();
+        CargarBaseDeDatos.llenarDatosEquipos();
+        CargarBaseDeDatos.llenarDatosEstadios();
+        CargarBaseDeDatos.llenarDatosPartidos();
+        CargarBaseDeDatos.llenarDatosPersonas();
+        
+        
+        
 
     }
 
