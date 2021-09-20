@@ -65,4 +65,9 @@ public class Validadores {
        return digitos.matches("^\\d*.\\d*$");
     }
     
+    public static boolean validadorBoletos(String digitos){
+       return digitos.matches("^\\d*$");
+    }
+    
+    
 }

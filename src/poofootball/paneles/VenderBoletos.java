@@ -7,6 +7,7 @@ package poofootball.paneles;
 
 import finalprojectpoofootballevents.Partido;
 import finalprojectpoofootballevents.Persona;
+import finalprojectpoofootballevents.Validadores;
 
 /**
  *
@@ -21,6 +22,9 @@ public class VenderBoletos extends javax.swing.JPanel {
      */
     public VenderBoletos() {
         initComponents();
+        lblErrorBoleto.setVisible(false);
+        lblErrorCedula.setVisible(false);
+        btnVenderBoleto.setEnabled(false);
         
     }
 
@@ -46,6 +50,7 @@ public class VenderBoletos extends javax.swing.JPanel {
         cmbBuscarPartidos = new javax.swing.JComboBox<>();
         lblBoletosVendidos = new javax.swing.JLabel();
         txtBoletosVendidos = new javax.swing.JTextField();
+        lblErrorBoleto = new javax.swing.JLabel();
         btnVenderBoleto = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -125,7 +130,16 @@ public class VenderBoletos extends javax.swing.JPanel {
             }
         });
 
-        lblBoletosVendidos.setText("Boletos Vendidos:");
+        lblBoletosVendidos.setText("Boletos a comprar:");
+
+        txtBoletosVendidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBoletosVendidosKeyReleased(evt);
+            }
+        });
+
+        lblErrorBoleto.setForeground(java.awt.Color.red);
+        lblErrorBoleto.setText("Ingrese un número de boletos que sea válido");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -138,6 +152,7 @@ public class VenderBoletos extends javax.swing.JPanel {
                     .addComponent(lblBoletosVendidos))
                 .addGap(62, 62, 62)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblErrorBoleto)
                     .addComponent(cmbBuscarPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBoletosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(111, Short.MAX_VALUE))
@@ -153,7 +168,9 @@ public class VenderBoletos extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBoletosVendidos)
                     .addComponent(txtBoletosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblErrorBoleto)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         btnVenderBoleto.setText("Vender Boleto");
@@ -187,7 +204,7 @@ public class VenderBoletos extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(btnVenderBoleto)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -211,6 +228,27 @@ public class VenderBoletos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbBuscarPartidosActionPerformed
 
+    private void txtBoletosVendidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBoletosVendidosKeyReleased
+        // TODO add your handling code here:
+        if(Validadores.validadorBoletos(txtBoletosVendidos.getText())){
+            lblErrorBoleto.setVisible(false);
+            btnVenderBoleto.setEnabled(true);
+        }else{
+            lblErrorBoleto.setVisible(true);
+            btnVenderBoleto.setEnabled(false);
+        }
+   
+    }//GEN-LAST:event_txtBoletosVendidosKeyReleased
+    public void actualizarListaPartidos(){
+        cmbBuscarPartidos.removeAllItems();
+        try{
+            for (Partido par: GUISistemaPartido.listaPartidosRegistrados){
+                cmbBuscarPartidos.addItem(par.getEquipo1() + " Vs. "+ par.getEquipo2());
+            }
+        } catch (Exception e){
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarPersona;
@@ -220,6 +258,7 @@ public class VenderBoletos extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblBoletosVendidos;
     private javax.swing.JLabel lblBuscarBoletos;
+    private javax.swing.JLabel lblErrorBoleto;
     private javax.swing.JLabel lblErrorCedula;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumCedula;
