@@ -50,6 +50,11 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Ciudad:");
 
+        txtCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCapacidadActionPerformed(evt);
+            }
+        });
         txtCapacidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCapacidadKeyReleased(evt);
@@ -158,6 +163,10 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
             btnRegistrar.setEnabled(false);
         }
     }//GEN-LAST:event_txtCapacidadKeyReleased
+
+    private void txtCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCapacidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCapacidadActionPerformed
     
     private void limpiarPanel(){
         txtCapacidad.setText(null);
