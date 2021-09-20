@@ -32,6 +32,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     VerEstadiosPanel pnlVerEstadios;
     VerPartidosPanel pnlVerPartido;
     VerEquiposPanel pnlVerEquipo;
+    VerPersonasPanel pnlVerPersonas;
 
     VenderBoletosPanel pnlVenderBoletos;
     ApuestasPanel pnlApuestas;
@@ -58,7 +59,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlVerEstadios = new VerEstadiosPanel();
         pnlVerPartido = new VerPartidosPanel();
         pnlVerEquipo = new VerEquiposPanel();
-
+        pnlVerPersonas = new VerPersonasPanel();
+        
         pnlVenderBoletos = new VenderBoletosPanel();
         pnlApuestas = new ApuestasPanel();
 
@@ -166,6 +168,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         mnMostrarRegistros.add(mnVerEstadio);
 
         mnVerPersonas.setText("Persona");
+        mnVerPersonas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnVerPersonasActionPerformed(evt);
+            }
+        });
         mnMostrarRegistros.add(mnVerPersonas);
 
         mnVerPartidos.setText("Partido");
@@ -333,6 +340,16 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mnApuestasMouseClicked
 
+    private void mnVerPersonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerPersonasActionPerformed
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlVerPersonas.setVisible(true);
+        pnlVerPersonas.setSize(500,500);
+        add(pnlVerPersonas);
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_mnVerPersonasActionPerformed
+
     private void limpiarGUI() {
         pnlRegistrarPersonas.setVisible(false);
         pnlRegistrarEstadio.setVisible(false);
@@ -343,6 +360,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlVerPartido.setVisible(false);
         pnlApuestas.setVisible(false);
         pnlVenderBoletos.setVisible(false);
+        pnlVerPersonas.setVisible(false);
     }
 
     /**
