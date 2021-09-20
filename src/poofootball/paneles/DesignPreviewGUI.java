@@ -5,6 +5,15 @@
  */
 package poofootball.paneles;
 
+import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -12,12 +21,26 @@ import javax.swing.JOptionPane;
  * @author Adhisson
  */
 public class DesignPreviewGUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form DesignPreviewGUI
      */
     public DesignPreviewGUI() {
         initComponents();
+        
+        try {
+            URI uri = new URI("https://github.com/joseguzmann");
+            class OpenUrlAction implements ActionListener {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    open(uri);
+                }
+            }
+            btnJose.addActionListener(new OpenUrlAction());
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(DesignPreviewGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     
@@ -37,6 +60,11 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         setTitle("Design Preview [GUI]");
 
         btnAdhisson.setText("Adhisson Cedeño");
+        btnAdhisson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdhissonActionPerformed(evt);
+            }
+        });
 
         btnDaniela.setText("Daniela Román");
         btnDaniela.addActionListener(new java.awt.event.ActionListener() {
@@ -57,18 +85,18 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(btnAdhisson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(76, 76, 76)
+                .addComponent(btnAdhisson, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addGap(56, 56, 56)
-                .addComponent(btnJose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnJose, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addGap(56, 56, 56)
                 .addComponent(btnDaniela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(89, 89, 89))
+                .addGap(95, 95, 95))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnAdhisson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnJose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -87,9 +115,26 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
     private void btnJoseActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnJoseActionPerformed
     {//GEN-HEADEREND:event_btnJoseActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Hola, mi usuario de Github es joseguzmann\n https://github.com/joseguzmann");
+        //JOptionPane.showMessageDialog(rootPane, "Hola, mi usuario de Github es joseguzmann\n");
+        
+        
     }//GEN-LAST:event_btnJoseActionPerformed
 
+    private void btnAdhissonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdhissonActionPerformed
+       
+    }//GEN-LAST:event_btnAdhissonActionPerformed
+    
+
+    private static void open(URI uri) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException e) {
+                /* TODO: error handling */ }
+        } else {
+            /* TODO: error handling */ }
+    }
+    
     /**
      * @param args the command line arguments
      */
