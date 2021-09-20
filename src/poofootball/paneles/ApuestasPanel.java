@@ -5,9 +5,11 @@
  */
 package poofootball.paneles;
 
+import finalprojectpoofootballevents.Apuesta;
 import finalprojectpoofootballevents.Equipo;
 import finalprojectpoofootballevents.Partido;
 import finalprojectpoofootballevents.Persona;
+import finalprojectpoofootballevents.Validadores;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Adhisson
  */
 public class ApuestasPanel extends javax.swing.JPanel {
-    
+    Apuesta nuevaApuesta;
     Persona persona;
     /**
      * Creates new form ApuestasPanel
@@ -75,9 +77,10 @@ public class ApuestasPanel extends javax.swing.JPanel {
         cmbEquipos = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rbtGana = new javax.swing.JRadioButton();
+        rbtEmpata = new javax.swing.JRadioButton();
+        rbtPierde = new javax.swing.JRadioButton();
+        lblErrosValor = new javax.swing.JLabel();
         btnCrearApuesta = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 36)); // NOI18N
@@ -155,20 +158,29 @@ public class ApuestasPanel extends javax.swing.JPanel {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la Apuesta"));
 
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtValorKeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("Valor:");
 
         jLabel4.setText("Equipo:");
 
         jLabel5.setText("El equipo: ");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Gana");
+        buttonGroup1.add(rbtGana);
+        rbtGana.setText("Gana");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setLabel("Empata");
+        buttonGroup1.add(rbtEmpata);
+        rbtEmpata.setLabel("Empata");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setLabel("Pierde");
+        buttonGroup1.add(rbtPierde);
+        rbtPierde.setLabel("Pierde");
+
+        lblErrosValor.setForeground(java.awt.Color.red);
+        lblErrosValor.setText("Ingrese un valor Válido");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -178,25 +190,30 @@ public class ApuestasPanel extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rbtGana)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(32, 32, 32)
-                        .addComponent(cmbEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
+                        .addComponent(rbtPierde)
+                        .addGap(37, 37, 37))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton3)
-                        .addGap(37, 37, 37))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblErrosValor)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4)
+                                .addGap(32, 32, 32)
+                                .addComponent(cmbEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rbtEmpata)
+                                    .addComponent(jLabel5))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,13 +224,15 @@ public class ApuestasPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(cmbEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblErrosValor)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rbtGana)
+                    .addComponent(rbtEmpata)
+                    .addComponent(rbtPierde))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -278,9 +297,14 @@ public class ApuestasPanel extends javax.swing.JPanel {
 
     private void btnCrearApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearApuestaActionPerformed
         // TODO add your handling code here:
+        String apuesta = null;
+        if(rbtEmpata.isSelected()) apuesta = "Empata";
+        if(rbtPierde.isSelected()) apuesta = "Pierde";
+        if(rbtGana.isSelected()) apuesta = "Gana";
+        nuevaApuesta = new Apuesta(Double.parseDouble(txtValor.getText()),
+            (Equipo)cmbEquipos.getSelectedItem(), apuesta );
         
-        
-        
+        JOptionPane.showMessageDialog(null, "La apuesta se realizó correctamente");
         
     }//GEN-LAST:event_btnCrearApuestaActionPerformed
 
@@ -297,6 +321,17 @@ public class ApuestasPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnBuscarPersonaActionPerformed
+
+    private void txtValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyReleased
+        // TODO add your handling code here:
+        if(Validadores.validadorDigitos(txtValor.getText())){
+            lblErrosValor.setVisible(false);
+            btnCrearApuesta.setEnabled(true);
+        } else {
+            lblErrosValor.setVisible(true);
+            btnCrearApuesta.setEnabled(false);
+        }
+    }//GEN-LAST:event_txtValorKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -315,10 +350,11 @@ public class ApuestasPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JLabel lblErrosValor;
     private javax.swing.JLabel lblPersonaNoEncontrada;
+    private javax.swing.JRadioButton rbtEmpata;
+    private javax.swing.JRadioButton rbtGana;
+    private javax.swing.JRadioButton rbtPierde;
     private javax.swing.JTextField txtCI;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtValor;

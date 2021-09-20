@@ -14,13 +14,16 @@ import java.util.ArrayList;
 public class Apuesta {
     
     private double montoApuesta;
-    
+    private Equipo equipo;
+    private String apuesta;
     private ArrayList <Persona> personas;
     private ArrayList <Partido> partidos;
     
     
-    public Apuesta(double montoApuesta) {
+    public Apuesta(double montoApuesta, Equipo equipo, String apuesta) {
         this.montoApuesta = montoApuesta;
+        this.equipo = equipo;
+        this.apuesta = apuesta;
         this.partidos = new ArrayList<>();
         this.personas = new ArrayList<>();
     }
