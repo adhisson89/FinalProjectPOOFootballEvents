@@ -16,10 +16,15 @@ public class Apuesta {
     private double montoApuesta;
     
     private ArrayList <Persona> personas;
-
+    private ArrayList <Partido> partidos;
+    
+    
     public Apuesta(double montoApuesta) {
         this.montoApuesta = montoApuesta;
+        this.partidos = new ArrayList<>();
     }
     
-    
+    public void agregarPartido(Partido p){
+        this.partidos.add(p);
+    }
 }
