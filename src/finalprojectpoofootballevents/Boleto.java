@@ -10,8 +10,18 @@ package finalprojectpoofootballevents;
  * @author Daniela Roman
  */
 public class Boleto {
-    
-    private String numeroBoleto;
+
+    private int numeroBoleto;
     private double precio;
-    
+
+    public Boleto(int numeroBoleto, int edad) {
+        this.numeroBoleto = numeroBoleto;
+
+        if (edad < 18) {
+            this.precio = 5;
+        } else {
+            this.precio = 10;
+        }
+    }
+
 }

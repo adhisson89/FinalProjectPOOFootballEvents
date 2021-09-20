@@ -5,6 +5,7 @@
  */
 package poofootball.paneles;
 
+import finalprojectpoofootballevents.Boleto;
 import finalprojectpoofootballevents.Partido;
 import finalprojectpoofootballevents.Persona;
 import finalprojectpoofootballevents.Validadores;
@@ -151,11 +152,11 @@ public class VenderBoletos extends javax.swing.JPanel {
                     .addComponent(lblBuscarBoletos)
                     .addComponent(lblBoletosVendidos))
                 .addGap(62, 62, 62)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblErrorBoleto)
-                    .addComponent(cmbBuscarPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBoletosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(111, Short.MAX_VALUE))
+                    .addComponent(cmbBuscarPartidos, 0, 235, Short.MAX_VALUE)
+                    .addComponent(txtBoletosVendidos))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,6 +175,11 @@ public class VenderBoletos extends javax.swing.JPanel {
         );
 
         btnVenderBoleto.setText("Vender Boleto");
+        btnVenderBoleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderBoletoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -239,6 +245,14 @@ public class VenderBoletos extends javax.swing.JPanel {
         }
    
     }//GEN-LAST:event_txtBoletosVendidosKeyReleased
+
+    private void btnVenderBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderBoletoActionPerformed
+        // TODO add your handling code here:
+        GUISistemaPartido.listaBoletosVendidos.add(new Boleto(GUISistemaPartido.listaBoletosVendidos.size()+1, persona.getEdad()));
+        
+
+    }//GEN-LAST:event_btnVenderBoletoActionPerformed
+    
     public void actualizarListaPartidos(){
         cmbBuscarPartidos.removeAllItems();
         try{

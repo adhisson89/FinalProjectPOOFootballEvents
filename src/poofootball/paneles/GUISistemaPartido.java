@@ -22,6 +22,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     static ArrayList<Equipo> listaEquiposRegistrados;
     static ArrayList<Apuesta> listaApuestasRealizadas;
     static ArrayList<Estadio> listaEstadiosRegistrados;
+    static ArrayList<Boleto> listaBoletosVendidos;
 
     RegistrarPersonasPanel pnlRegistrarPersonas;
     RegistrarEstadioPanel pnlRegistrarEstadio;
@@ -45,6 +46,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         listaEquiposRegistrados = new ArrayList<Equipo>();
         listaApuestasRealizadas = new ArrayList<Apuesta>();
         listaEstadiosRegistrados = new ArrayList<Estadio>();
+        listaBoletosVendidos = new ArrayList<Boleto>();
 
         DesignPreview = new DesignPreviewGUI();
         pnlRegistrarPartido = new RegistrarPartidoPanel();

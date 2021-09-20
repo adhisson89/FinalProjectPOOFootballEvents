@@ -49,6 +49,15 @@ public class Persona {
     public void setNumCedula(String numCedula) {
         this.numCedula = numCedula;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    
     
     public static Persona buscarPersonaPorCI(ArrayList<Persona> lista, String cedulaBuscar) {
         Persona personaEncontrada = null;
