@@ -341,6 +341,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlVerEquipo.setVisible(false);
         pnlVerEstadios.setVisible(false);
         pnlVerPartido.setVisible(false);
+        pnlApuestas.setVisible(false);
+        pnlVenderBoletos.setVisible(false);
     }
 
     /**
