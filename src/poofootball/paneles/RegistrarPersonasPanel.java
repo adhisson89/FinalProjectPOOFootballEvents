@@ -6,6 +6,9 @@
 package poofootball.paneles;
 
 import finalprojectpoofootballevents.*;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -18,6 +21,9 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
      */
     public RegistrarPersonasPanel() {
         initComponents();
+        lblErrorCedula.setVisible(false);
+        lblErrorCorreo.setVisible(false);
+        lblErrorEdad.setVisible(false);
     }
 
     /**
@@ -29,6 +35,8 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -44,10 +52,11 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
         txtCorreoElectronico = new javax.swing.JTextField();
         lblErrorCorreo = new javax.swing.JLabel();
         lblErrorEdad = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setPreferredSize(new java.awt.Dimension(500, 500));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Registrar Personas");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -161,38 +170,52 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtCorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCorreoElectronico))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblErrorCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(38, 38, 38)
                 .addComponent(btnRegistrarPersona)
                 .addGap(27, 27, 27))
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Registrar Personas");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addGap(33, 33, 33)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,16 +227,22 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
     private void btnRegistrarPersonaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegistrarPersonaActionPerformed
     {//GEN-HEADEREND:event_btnRegistrarPersonaActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.listaPersonasRegistradas.add(new Persona(txtNombre.getText(), txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
-
-        //Comentario de prueba
-        //Holaholapartido xdxd
+        GUISistemaPartido.listaPersonasRegistradas.add(new Persona(txtNombre.getText(),
+                txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPersonas.noabrir");) {
+            salida.writeObject(new Persona(txtNombre.getText(),
+                txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
+            JOptionPane.showMessageDialog(null, "Se registró correctamente");
+            
+        } catch (IOException ioe) {
+            System.err.println("No se creo la persona" + ioe);
+        }
     }//GEN-LAST:event_btnRegistrarPersonaActionPerformed
 
     private void txtCIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCIKeyReleased
         // TODO add your handling code here:
 
-        if (Validadores.validadorFecha(txtCI.getText())) {
+        if (Validadores.validadorCedulaIdentidad(txtCI.getText())) {
             lblErrorCedula.setVisible(false);
             btnRegistrarPersona.setEnabled(true);
         } else {
@@ -225,7 +254,7 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
     private void txtEdadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadKeyReleased
         // TODO add your handling code here:
 
-        if (Validadores.validadorFecha(txtEdad.getText())) {
+        if (Validadores.validadorEdad(txtEdad.getText())) {
             lblErrorEdad.setVisible(false);
             btnRegistrarPersona.setEnabled(true);
         } else {
@@ -263,6 +292,7 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCorreoElectronico;
     private javax.swing.JLabel lblErrorCedula;
     private javax.swing.JLabel lblErrorCorreo;

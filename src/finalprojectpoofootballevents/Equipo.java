@@ -5,13 +5,14 @@
  */
 package finalprojectpoofootballevents;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  *
  * @author Daniela Roman
  */
-public class Equipo {
+public class Equipo implements Serializable{
     
     private String nombre;
     private String anioFundacion;

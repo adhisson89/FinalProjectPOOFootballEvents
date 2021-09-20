@@ -5,11 +5,13 @@
  */
 package finalprojectpoofootballevents;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniela Roman
  */
-public class Boleto {
+public class Boleto implements Serializable{
 
     private int numeroBoleto;
     private double precio;

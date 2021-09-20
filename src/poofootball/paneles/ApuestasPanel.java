@@ -7,9 +7,11 @@ package poofootball.paneles;
 
 import finalprojectpoofootballevents.Apuesta;
 import finalprojectpoofootballevents.Equipo;
+import finalprojectpoofootballevents.MiObjectOutputStream;
 import finalprojectpoofootballevents.Partido;
 import finalprojectpoofootballevents.Persona;
 import finalprojectpoofootballevents.Validadores;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,6 +30,8 @@ public class ApuestasPanel extends javax.swing.JPanel {
         initComponents();
         btnCrearApuesta.setEnabled(false);
         txtNombre.setEnabled(false);
+        lblErrorCedula.setVisible(false);
+        lblErrorValor.setVisible(false);
     }
     
     public void actualizarListaPartidos() {
@@ -82,7 +86,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
         rbtGana = new javax.swing.JRadioButton();
         rbtEmpata = new javax.swing.JRadioButton();
         rbtPierde = new javax.swing.JRadioButton();
-        lblErrosValor = new javax.swing.JLabel();
+        lblErrorValor = new javax.swing.JLabel();
         btnCrearApuesta = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 0, 36)); // NOI18N
@@ -132,7 +136,6 @@ public class ApuestasPanel extends javax.swing.JPanel {
                                 .addGap(11, 11, 11)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(cmbPartidos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(9, 9, 9))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -194,8 +197,8 @@ public class ApuestasPanel extends javax.swing.JPanel {
         buttonGroup1.add(rbtPierde);
         rbtPierde.setLabel("Pierde");
 
-        lblErrosValor.setForeground(java.awt.Color.red);
-        lblErrosValor.setText("Ingrese un valor Válido");
+        lblErrorValor.setForeground(java.awt.Color.red);
+        lblErrorValor.setText("Ingrese un valor Válido");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -209,7 +212,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblErrosValor)
+                            .addComponent(lblErrorValor)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -237,7 +240,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
                     .addComponent(cmbEquipos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblErrosValor)
+                .addComponent(lblErrorValor)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addGap(16, 16, 16)
@@ -322,7 +325,13 @@ public class ApuestasPanel extends javax.swing.JPanel {
         nuevaApuesta = new Apuesta(Double.parseDouble(txtValor.getText()),
                 (Equipo) cmbEquipos.getSelectedItem(), apuesta);
         
-        JOptionPane.showMessageDialog(null, "La apuesta se realizó correctamente");
+        try (MiObjectOutputStream salida = new MiObjectOutputStream("registroApuestas.noabrir");) {
+            salida.writeObject(nuevaApuesta);
+            JOptionPane.showMessageDialog(null, "La apuesta se realizó correctamente");
+        } catch (IOException ioe) {
+            System.err.println("No se creo la apuesta" + ioe);
+        }
+        
 
     }//GEN-LAST:event_btnCrearApuestaActionPerformed
 
@@ -341,12 +350,18 @@ public class ApuestasPanel extends javax.swing.JPanel {
     
     private void txtValorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyReleased
         // TODO add your handling code here:
-        
+        if (Validadores.validadorDigitos(txtCI.getText())) {
+            lblErrorValor.setVisible(false);
+            btnBuscarPersona.setEnabled(true);
+        } else {
+            lblErrorValor.setVisible(true);
+            btnBuscarPersona.setEnabled(false);
+        }
     }//GEN-LAST:event_txtValorKeyReleased
 
     private void txtCIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCIKeyReleased
         // TODO add your handling code here: 
-        if (Validadores.validadorDigitos(txtCI.getText())) {
+        if (Validadores.validadorCedulaIdentidad(txtCI.getText())) {
             lblErrorCedula.setVisible(false);
             btnBuscarPersona.setEnabled(true);
         } else {
@@ -383,7 +398,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblErrorCedula;
-    private javax.swing.JLabel lblErrosValor;
+    private javax.swing.JLabel lblErrorValor;
     private javax.swing.JRadioButton rbtEmpata;
     private javax.swing.JRadioButton rbtGana;
     private javax.swing.JRadioButton rbtPierde;

@@ -17,12 +17,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
     DesignPreviewGUI DesignPreview;
 
-    static ArrayList<Persona> listaPersonasRegistradas;
-    static ArrayList<Partido> listaPartidosRegistrados;
-    static ArrayList<Equipo> listaEquiposRegistrados;
-    static ArrayList<Apuesta> listaApuestasRealizadas;
-    static ArrayList<Estadio> listaEstadiosRegistrados;
-    static ArrayList<Boleto> listaBoletosVendidos;
+    public static ArrayList<Persona> listaPersonasRegistradas;
+    public static ArrayList<Partido> listaPartidosRegistrados;
+    public static ArrayList<Equipo> listaEquiposRegistrados;
+    public static ArrayList<Apuesta> listaApuestasRealizadas;
+    public static ArrayList<Estadio> listaEstadiosRegistrados;
+    public static ArrayList<Boleto> listaBoletosVendidos;
 
     RegistrarPersonasPanel pnlRegistrarPersonas;
     RegistrarEstadioPanel pnlRegistrarEstadio;
@@ -42,13 +42,18 @@ public class GUISistemaPartido extends javax.swing.JFrame {
      */
     public GUISistemaPartido() {
         initComponents();
-
-        listaPersonasRegistradas = new ArrayList<Persona>();
-        listaPartidosRegistrados = new ArrayList<Partido>();
-        listaEquiposRegistrados = new ArrayList<Equipo>();
-        listaApuestasRealizadas = new ArrayList<Apuesta>();
-        listaEstadiosRegistrados = new ArrayList<Estadio>();
-        listaBoletosVendidos = new ArrayList<Boleto>();
+        
+        CargarBaseDeDatos.llenarDatos();
+        
+        this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        listaPersonasRegistradas = new ArrayList<>();
+        listaPartidosRegistrados = new ArrayList<>();
+        listaEquiposRegistrados = new ArrayList<>();
+        listaApuestasRealizadas = new ArrayList<>();
+        listaEstadiosRegistrados = new ArrayList<>();
+        listaBoletosVendidos = new ArrayList<>();
 
         DesignPreview = new DesignPreviewGUI();
         pnlRegistrarPartido = new RegistrarPartidoPanel();
@@ -241,7 +246,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlRegistrarPersonas.setVisible(true);
-        pnlRegistrarPersonas.setSize(500, 500);
+        pnlRegistrarPersonas.setSize(510, 510);
+        pnlRegistrarPersonas.setLocation(400, 100);
         add(pnlRegistrarPersonas);
         revalidate();
         repaint();
@@ -252,7 +258,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlRegistrarEstadio.setVisible(true);
-        pnlRegistrarEstadio.setSize(500, 500);
+        pnlRegistrarEstadio.setSize(460, 350);
+        pnlRegistrarEstadio.setLocation(450,150);
         add(pnlRegistrarEstadio);
         revalidate();
         repaint();
@@ -260,15 +267,14 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
     private void mnIngresarPartidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mnIngresarPartidoActionPerformed
     {//GEN-HEADEREND:event_mnIngresarPartidoActionPerformed
-
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         pnlRegistrarPartido.actualizarListaEquipos();
         pnlRegistrarPartido.actualizarListaEquiposGanadores();
         pnlRegistrarPartido.actualizarListaEstadios();
-
         limpiarGUI();
         pnlRegistrarPartido.setVisible(true);
-        pnlRegistrarPartido.setSize(500, 500);
+        pnlRegistrarPartido.setSize(657, 497);
+        pnlRegistrarPartido.setLocation(300, 100);
         add(pnlRegistrarPartido);
         revalidate();
         repaint();
@@ -278,7 +284,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlRegistrarEquipo.setVisible(true);
-        pnlRegistrarEquipo.setSize(500, 500);
+        pnlRegistrarEquipo.setSize(491, 309);
+        pnlRegistrarEquipo.setLocation(450,150);
         add(pnlRegistrarEquipo);
         revalidate();
         repaint();
@@ -289,11 +296,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerPartido.setVisible(true);
-        pnlVerPartido.setSize(500, 500);
+        pnlVerPartido.setSize(610, 464);
+        pnlVerPartido.setLocation(350, 100);
+        pnlVerPartido.verPartidosTabla();
         add(pnlVerPartido);
         revalidate();
-        repaint();
-        pnlVerPartido.actualizarTabla();
+        repaint(); 
     }//GEN-LAST:event_mnVerPartidosActionPerformed
 
 
@@ -301,7 +309,9 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerEstadios.setVisible(true);
-        pnlVerEstadios.setSize(500, 500);
+        pnlVerEstadios.setSize(610, 464);
+        pnlVerEstadios.setLocation(350, 100);
+        pnlVerEstadios.verEstadiosTabla();
         add(pnlVerEstadios);
         revalidate();
         repaint();
@@ -312,7 +322,9 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerEquipo.setVisible(true);
-        pnlVerEquipo.setSize(700, 700);
+        pnlVerEquipo.setSize(610, 464);
+        pnlVerEquipo.setLocation(350, 100);
+        pnlVerEquipo.verEquiposTabla();
         add(pnlVerEquipo);
         revalidate();
         repaint();
@@ -322,7 +334,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVenderBoletos.setVisible(true);
-        pnlVenderBoletos.setSize(700, 700);
+        pnlVenderBoletos.setSize(683, 459);
+        pnlVenderBoletos.setLocation(350, 100);
         add(pnlVenderBoletos);
         revalidate();
         repaint();
@@ -333,7 +346,9 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlApuestas.setVisible(true);
-        pnlApuestas.setSize(700, 700);
+        pnlApuestas.setSize(490, 485);
+        pnlApuestas.setLocation(350, 100);
+        
         add(pnlApuestas);
         revalidate();
         repaint();
@@ -344,7 +359,9 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerPersonas.setVisible(true);
-        pnlVerPersonas.setSize(500,500);
+        pnlVerPersonas.setSize(610, 464);
+        pnlVerPersonas.setLocation(350, 100);
+        pnlVerPersonas.verPersonasTabla();
         add(pnlVerPersonas);
         revalidate();
         repaint();

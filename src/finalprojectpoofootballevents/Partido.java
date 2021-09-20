@@ -5,11 +5,13 @@
  */
 package finalprojectpoofootballevents;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniela Roman
  */
-public class Partido {
+public class Partido implements Serializable{
     
     private String fecha;
     private Equipo resultadoGanador;

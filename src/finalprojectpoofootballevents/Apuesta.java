@@ -5,13 +5,14 @@
  */
 package finalprojectpoofootballevents;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Daniela Roman
  */
-public class Apuesta {
+public class Apuesta implements Serializable{
     
     private double montoApuesta;
     private Equipo equipo;

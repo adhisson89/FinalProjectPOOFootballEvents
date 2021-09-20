@@ -5,11 +5,13 @@
  */
 package finalprojectpoofootballevents;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daniela Roman
  */
-public class Estadio {
+public class Estadio implements Serializable{
     
     private String capacidad;
     
