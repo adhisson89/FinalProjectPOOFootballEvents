@@ -27,7 +27,6 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
     public VenderBoletosPanel() {
         initComponents();
         lblErrorCedula.setVisible(false);
-        btnVenderBoleto.setEnabled(false);
         actualizarListaPartidos();
     }
 
@@ -222,7 +221,7 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
         if(cmbBuscarPartidos.getSelectedIndex() == -1){
             btnVenderBoleto.setEnabled(false);
         } else {
-            btnVenderBoleto.setEnabled(false);
+            btnVenderBoleto.setEnabled(true);
         }
     }//GEN-LAST:event_cmbBuscarPartidosActionPerformed
 
