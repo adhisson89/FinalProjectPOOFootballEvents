@@ -22,12 +22,12 @@ public class VerPartidosPanel extends javax.swing.JPanel
     {
         initComponents();
         tbl = new DefaultTableModel();
-        tbl.addColumn("FECHA");
-        tbl.addColumn("GANADOR");
-        tbl.addColumn("HORA");
-        tbl.addColumn("EQUIPO 1");
-        tbl.addColumn("EQUIPO 2");
-        tbl.addColumn("ESTADIO");
+        tbl.addColumn("Fecha");
+        tbl.addColumn("Ganador");
+        tbl.addColumn("Hora");
+        tbl.addColumn("Equipo 1");
+        tbl.addColumn("Equipo 2");
+        tbl.addColumn("Estadio");
         tblPartidos.setModel(tbl);
     }
     
@@ -77,11 +77,11 @@ public class VerPartidosPanel extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
+                        .addGap(237, 237, 237)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,8 +89,8 @@ public class VerPartidosPanel extends javax.swing.JPanel
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -17,6 +17,7 @@ public class Persona {
     private String apellido;
     private String numCedula;
     private int edad;
+    private String correoElectronico;
 
     public Persona(String nombre, String apellido, String numCedula, int edad)
     {
@@ -56,6 +57,14 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
     
     

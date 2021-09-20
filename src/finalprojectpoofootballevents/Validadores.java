@@ -69,5 +69,24 @@ public class Validadores {
        return digitos.matches("^\\d*$");
     }
     
+     public static boolean validadorAnio(String digitos){
+       return digitos.matches("^\\d{4}$");
+    }
+    
+    public static boolean validadorCorreoElectronico(String correo){
+        return correo.matches("^[-a-z0-9~!$%^&_=+}{\\'?]+(\\.[-a-z0-9~!$%^&_=+}{\\'?]+)@([a-z0-9_][-a-z0-9_](\\.[-a-z0-9_]+)*\\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}))(:[0-9]{1,5})?$");
+    }
+    
+    public static boolean validadorHora(String hora){
+        return hora.matches("^(20|21|22|23|[01]\\d|\\d)((:[0-5]\\d){1,2})$");
+    }
+    
+    public static boolean validadorFecha(String fecha){
+        return fecha.matches("^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$");
+    }
+    
+    public static boolean validadorEdad(String edad){
+        return edad.matches("^\\d{1,3}$");
+    }
     
 }

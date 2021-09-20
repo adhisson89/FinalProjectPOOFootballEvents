@@ -14,19 +14,17 @@ import finalprojectpoofootballevents.Validadores;
  *
  * @author Daniela Roman
  */
-public class VenderBoletos extends javax.swing.JPanel {
-    
+public class VenderBoletosPanel extends javax.swing.JPanel {
+
     Persona persona;
 
     /**
      * Creates new form VenderBoletos
      */
-    public VenderBoletos() {
+    public VenderBoletosPanel() {
         initComponents();
-        lblErrorBoleto.setVisible(false);
         lblErrorCedula.setVisible(false);
         btnVenderBoleto.setEnabled(false);
-        
     }
 
     /**
@@ -49,9 +47,6 @@ public class VenderBoletos extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lblBuscarBoletos = new javax.swing.JLabel();
         cmbBuscarPartidos = new javax.swing.JComboBox<>();
-        lblBoletosVendidos = new javax.swing.JLabel();
-        txtBoletosVendidos = new javax.swing.JTextField();
-        lblErrorBoleto = new javax.swing.JLabel();
         btnVenderBoleto = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -81,40 +76,34 @@ public class VenderBoletos extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(lblNombre)
-                        .addGap(27, 27, 27))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(lblNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNumeroCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblErrorCedula)
-                                .addGap(35, 35, 35)
-                                .addComponent(btnBuscarPersona)))
-                        .addGap(31, 31, 31))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNombre)
+                        .addGap(38, 38, 38)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorCedula)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtNumeroCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnBuscarPersona)))
+                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumeroCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumeroCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBuscarPersona)
-                    .addComponent(lblErrorCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addComponent(lblErrorCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,32 +120,16 @@ public class VenderBoletos extends javax.swing.JPanel {
             }
         });
 
-        lblBoletosVendidos.setText("Boletos a comprar:");
-
-        txtBoletosVendidos.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBoletosVendidosKeyReleased(evt);
-            }
-        });
-
-        lblErrorBoleto.setForeground(java.awt.Color.red);
-        lblErrorBoleto.setText("Ingrese un número de boletos que sea válido");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBuscarBoletos)
-                    .addComponent(lblBoletosVendidos))
-                .addGap(62, 62, 62)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblErrorBoleto)
-                    .addComponent(cmbBuscarPartidos, 0, 235, Short.MAX_VALUE)
-                    .addComponent(txtBoletosVendidos))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(lblBuscarBoletos)
+                .addGap(74, 74, 74)
+                .addComponent(cmbBuscarPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,13 +138,7 @@ public class VenderBoletos extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBuscarBoletos)
                     .addComponent(cmbBuscarPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBoletosVendidos)
-                    .addComponent(txtBoletosVendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblErrorBoleto)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         btnVenderBoleto.setText("Vender Boleto");
@@ -185,21 +152,21 @@ public class VenderBoletos extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVenderBoleto)
-                .addGap(286, 286, 286))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(270, 270, 270)
-                            .addComponent(lblTitulo))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(lblTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnVenderBoleto)
+                .addGap(275, 275, 275))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,58 +177,50 @@ public class VenderBoletos extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnVenderBoleto)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonaActionPerformed
         // TODO add your handling code here:
-        
+
         persona = Persona.buscarPersonaPorCI(GUISistemaPartido.listaPersonasRegistradas, txtNumeroCedula.getText());
-        
-        if(persona == null){
+
+        if (persona == null) {
             lblErrorCedula.setVisible(true);
         } else {
-            txtNombrePersona.setText(persona.getNombre() + " "+ persona.getApellido());
+            txtNombrePersona.setText(persona.getNombre() + " " + persona.getApellido());
             lblErrorCedula.setVisible(false);
         }
-        
+
     }//GEN-LAST:event_btnBuscarPersonaActionPerformed
 
     private void cmbBuscarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBuscarPartidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbBuscarPartidosActionPerformed
 
-    private void txtBoletosVendidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBoletosVendidosKeyReleased
-        // TODO add your handling code here:
-        if(Validadores.validadorBoletos(txtBoletosVendidos.getText())){
-            lblErrorBoleto.setVisible(false);
-            btnVenderBoleto.setEnabled(true);
-        }else{
-            lblErrorBoleto.setVisible(true);
-            btnVenderBoleto.setEnabled(false);
-        }
-   
-    }//GEN-LAST:event_txtBoletosVendidosKeyReleased
-
     private void btnVenderBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderBoletoActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.listaBoletosVendidos.add(new Boleto(GUISistemaPartido.listaBoletosVendidos.size()+1, persona.getEdad()));
-        
+        GUISistemaPartido.listaBoletosVendidos.add(new Boleto(GUISistemaPartido.listaBoletosVendidos.size() + 1, persona.getEdad()));
 
     }//GEN-LAST:event_btnVenderBoletoActionPerformed
-    
-    public void actualizarListaPartidos(){
+
+    public void actualizarListaPartidos() {
         cmbBuscarPartidos.removeAllItems();
-        try{
-            for (Partido par: GUISistemaPartido.listaPartidosRegistrados){
-                cmbBuscarPartidos.addItem(par.getEquipo1() + " Vs. "+ par.getEquipo2());
+        try {
+            for (Partido par : GUISistemaPartido.listaPartidosRegistrados) {
+                cmbBuscarPartidos.addItem(par.getEquipo1() + " Vs. " + par.getEquipo2());
             }
-        } catch (Exception e){
-            
+        } catch (Exception e) {
+
         }
+    }
+    
+    private void limpiarPanel() {
+        txtNombrePersona.setText(null);
+        txtNumeroCedula.setText(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -270,14 +229,11 @@ public class VenderBoletos extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbBuscarPartidos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblBoletosVendidos;
     private javax.swing.JLabel lblBuscarBoletos;
-    private javax.swing.JLabel lblErrorBoleto;
     private javax.swing.JLabel lblErrorCedula;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumCedula;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextField txtBoletosVendidos;
     private javax.swing.JTextField txtNombrePersona;
     private javax.swing.JTextField txtNumeroCedula;
     // End of variables declaration//GEN-END:variables

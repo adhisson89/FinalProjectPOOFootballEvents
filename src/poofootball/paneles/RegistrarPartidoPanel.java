@@ -12,46 +12,44 @@ import javax.swing.JOptionPane;
  *
  * @author jg175
  */
-public class RegistrarPartidoPanel extends javax.swing.JPanel
-{
-    
+public class RegistrarPartidoPanel extends javax.swing.JPanel {
+
     /**
      * Creates new form RegistrarPartidoPanel
      */
-    public RegistrarPartidoPanel()
-    {
+    public RegistrarPartidoPanel() {
         initComponents();
         actualizarListaEquipos();
         actualizarListaEstadios();
     }
-    
+
     public void actualizarListaEquipos() {
         cmbEquipo1.removeAllItems();
         cmbEquipo2.removeAllItems();
-      try{
-            for(Equipo equipo : GUISistemaPartido.listaEquiposRegistrados) {
-            cmbEquipo1.addItem(equipo.getNombre());
-            cmbEquipo2.addItem(equipo.getNombre());
+        try {
+            for (Equipo equipo : GUISistemaPartido.listaEquiposRegistrados) {
+                cmbEquipo1.addItem(equipo.getNombre());
+                cmbEquipo2.addItem(equipo.getNombre());
             }
-      } catch (Exception e){
-          JOptionPane.showMessageDialog(null, "Error "+e.getStackTrace());
-      }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getStackTrace());
+        }
     }
-    
+
     public void actualizarListaEstadios() {
         cmbEstadio.removeAllItems();
         try {
-            for(Estadio estadio : GUISistemaPartido.listaEstadiosRegistrados) {
-            cmbEstadio.addItem(estadio.getNombreEstadio());
-        }
-        }catch (Exception e){
-           JOptionPane.showMessageDialog(null, "Error "+e.getStackTrace());
+            for (Estadio estadio : GUISistemaPartido.listaEstadiosRegistrados) {
+                cmbEstadio.addItem(estadio.getNombreEstadio());
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getStackTrace());
         }
     }
-    
+
     public void actualizarListaEquiposGanadores() {
         cmbEquipoGanador.removeAllItems();
-        if(cmbEquipo1.getSelectedIndex() != -1 && cmbEquipo2.getSelectedIndex() != -1) {
+        if (cmbEquipo1.getSelectedIndex() != -1 && cmbEquipo2.getSelectedIndex() != -1) {
             cmbEquipoGanador.addItem(GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo1.getSelectedIndex()).getNombre());
             cmbEquipoGanador.addItem(GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo2.getSelectedIndex()).getNombre());
         }
@@ -64,8 +62,7 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -82,13 +79,27 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
         jLabel7 = new javax.swing.JLabel();
         cmbEquipoGanador = new javax.swing.JComboBox<>();
         btnRegistrarPartido = new javax.swing.JButton();
+        lblErrorFecha = new javax.swing.JLabel();
+        lblErrorHora = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Registrar Partido");
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setText("Fecha:");
+
+        txtFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechaKeyReleased(evt);
+            }
+        });
+
+        txtHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtHoraKeyReleased(evt);
+            }
+        });
 
         jLabel3.setText("Hora:");
 
@@ -98,25 +109,19 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
 
         jLabel6.setText("Estadio:");
 
-        cmbEquipo1.addItemListener(new java.awt.event.ItemListener()
-        {
-            public void itemStateChanged(java.awt.event.ItemEvent evt)
-            {
+        cmbEquipo1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbEquipo1ItemStateChanged(evt);
             }
         });
-        cmbEquipo1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cmbEquipo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEquipo1ActionPerformed(evt);
             }
         });
 
-        cmbEquipo2.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        cmbEquipo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbEquipo2ActionPerformed(evt);
             }
         });
@@ -124,13 +129,17 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
         jLabel7.setText("Equipo ganador:");
 
         btnRegistrarPartido.setText("Registrar partido");
-        btnRegistrarPartido.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnRegistrarPartido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarPartidoActionPerformed(evt);
             }
         });
+
+        lblErrorFecha.setForeground(java.awt.Color.red);
+        lblErrorFecha.setText("Ingrese una fecha válida formato YYYY-MM-DD");
+
+        lblErrorHora.setForeground(java.awt.Color.red);
+        lblErrorHora.setText("Ingrese una hora válida HH:MM");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,66 +149,81 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbEquipoGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbEquipo2, 0, 107, Short.MAX_VALUE)
-                                    .addComponent(cmbEstadio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(cmbEquipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(125, 125, 125)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtHora)))
-                        .addGap(32, 32, 32))))
+                            .addComponent(cmbEquipo2, 0, 100, Short.MAX_VALUE)
+                            .addComponent(cmbEstadio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbEquipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(84, 84, 84)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorHora, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(79, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(btnRegistrarPartido)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(cmbEquipoGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnRegistrarPartido)
+                        .addGap(240, 240, 240))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblErrorFecha)
+                        .addGap(56, 56, 56))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(cmbEquipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(cmbEquipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cmbEstadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cmbEquipoGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblErrorFecha)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblErrorHora, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(cmbEquipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(cmbEquipo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(cmbEquipoGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbEstadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(btnRegistrarPartido)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -207,38 +231,37 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(240, 240, 240))))
+                .addGap(301, 301, 301)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarPartidoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnRegistrarPartidoActionPerformed
     {//GEN-HEADEREND:event_btnRegistrarPartidoActionPerformed
         // TODO add your handling code here:
-        
+
         String fecha = txtFecha.getText();
         String hora = txtHora.getText();
         Equipo ganador = null;
         Equipo equipo1 = GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo1.getSelectedIndex());
         Equipo equipo2 = GUISistemaPartido.listaEquiposRegistrados.get(cmbEquipo2.getSelectedIndex());
-        if(cmbEquipoGanador.getSelectedIndex() == 0) {
+        if (cmbEquipoGanador.getSelectedIndex() == 0) {
             ganador = equipo1;
-        } else if(cmbEquipoGanador.getSelectedIndex() == 1) {
+        } else if (cmbEquipoGanador.getSelectedIndex() == 1) {
             ganador = equipo2;
         }
         Estadio estadio = GUISistemaPartido.listaEstadiosRegistrados.get(cmbEstadio.getSelectedIndex());
@@ -263,8 +286,36 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
         actualizarListaEquiposGanadores();
     }//GEN-LAST:event_cmbEquipo2ActionPerformed
 
-    
+    private void txtFechaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyReleased
+        // TODO add your handling code here:
+        if (Validadores.validadorFecha(txtFecha.getText())) {
+            lblErrorFecha.setVisible(false);
+            btnRegistrarPartido.setEnabled(true);
+        } else {
+            lblErrorFecha.setVisible(true);
+            btnRegistrarPartido.setEnabled(false);
+        }
 
+    }//GEN-LAST:event_txtFechaKeyReleased
+
+    private void txtHoraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHoraKeyReleased
+        // TODO add your handling code here:
+
+        if (Validadores.validadorHora(txtHora.getText())) {
+            lblErrorHora.setVisible(false);
+            btnRegistrarPartido.setEnabled(true);
+        } else {
+            lblErrorHora.setVisible(true);
+            btnRegistrarPartido.setEnabled(false);
+        }
+
+    }//GEN-LAST:event_txtHoraKeyReleased
+
+    private void limpiarPanel() {
+        txtFecha.setText(null);
+        txtHora.setText(null);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarPartido;
     private javax.swing.JComboBox<String> cmbEquipo1;
@@ -279,6 +330,8 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblErrorFecha;
+    private javax.swing.JLabel lblErrorHora;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
     // End of variables declaration//GEN-END:variables

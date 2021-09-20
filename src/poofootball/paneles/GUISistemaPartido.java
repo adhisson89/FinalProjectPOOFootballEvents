@@ -29,18 +29,19 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     RegistrarPartidoPanel pnlRegistrarPartido;
     RegistrarEquipoPanel pnlRegistrarEquipo;
 
-    
     VerEstadiosPanel pnlVerEstadios;
     VerPartidosPanel pnlVerPartido;
     VerEquiposPanel pnlVerEquipo;
 
+    VenderBoletosPanel pnlVenderBoletos;
+    ApuestasPanel pnlApuestas;
 
     /**
      * Creates new form GUISistemaPartido
      */
     public GUISistemaPartido() {
         initComponents();
-        
+
         listaPersonasRegistradas = new ArrayList<Persona>();
         listaPartidosRegistrados = new ArrayList<Partido>();
         listaEquiposRegistrados = new ArrayList<Equipo>();
@@ -54,11 +55,12 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarEstadio = new RegistrarEstadioPanel();
         pnlRegistrarEquipo = new RegistrarEquipoPanel();
 
-        
         pnlVerEstadios = new VerEstadiosPanel();
         pnlVerPartido = new VerPartidosPanel();
         pnlVerEquipo = new VerEquiposPanel();
 
+        pnlVenderBoletos = new VenderBoletosPanel();
+        pnlApuestas = new ApuestasPanel();
 
     }
 
@@ -78,19 +80,19 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
-        nuevo = new javax.swing.JMenu();
+        mnIngresar = new javax.swing.JMenu();
         mnIngresarEquipo = new javax.swing.JMenuItem();
         mnIngresarEstadio = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mnIngresarPersona = new javax.swing.JMenuItem();
         mnIngresarPartido = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
+        mnMostrarRegistros = new javax.swing.JMenu();
         mnVerEquipos = new javax.swing.JMenuItem();
         mnVerEstadio = new javax.swing.JMenuItem();
         mnVerPersonas = new javax.swing.JMenuItem();
         mnVerPartidos = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        mnVenderBoletos = new javax.swing.JMenu();
         mnApuestas = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
+        mnAutores = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -104,7 +106,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nuevo.setText("Ingresar");
+        mnIngresar.setText("Ingresar");
 
         mnIngresarEquipo.setText("Equipo");
         mnIngresarEquipo.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +114,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnIngresarEquipoActionPerformed(evt);
             }
         });
-        nuevo.add(mnIngresarEquipo);
+        mnIngresar.add(mnIngresarEquipo);
 
         mnIngresarEstadio.setText("Estadio");
         mnIngresarEstadio.addActionListener(new java.awt.event.ActionListener() {
@@ -120,20 +122,20 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnIngresarEstadioActionPerformed(evt);
             }
         });
-        nuevo.add(mnIngresarEstadio);
+        mnIngresar.add(mnIngresarEstadio);
 
-        jMenuItem2.setText("Persona");
-        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnIngresarPersona.setText("Persona");
+        mnIngresarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem2MouseClicked(evt);
+                mnIngresarPersonaMouseClicked(evt);
             }
         });
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnIngresarPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mnIngresarPersonaActionPerformed(evt);
             }
         });
-        nuevo.add(jMenuItem2);
+        mnIngresar.add(mnIngresarPersona);
 
         mnIngresarPartido.setText("Partido");
         mnIngresarPartido.addActionListener(new java.awt.event.ActionListener() {
@@ -141,11 +143,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnIngresarPartidoActionPerformed(evt);
             }
         });
-        nuevo.add(mnIngresarPartido);
+        mnIngresar.add(mnIngresarPartido);
 
-        jMenuBar1.add(nuevo);
+        jMenuBar1.add(mnIngresar);
 
-        jMenu7.setText("Mostrar registros");
+        mnMostrarRegistros.setText("Mostrar registros");
 
         mnVerEquipos.setText("Equipo");
         mnVerEquipos.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +155,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnVerEquiposActionPerformed(evt);
             }
         });
-        jMenu7.add(mnVerEquipos);
+        mnMostrarRegistros.add(mnVerEquipos);
 
         mnVerEstadio.setText("Estadio");
         mnVerEstadio.addActionListener(new java.awt.event.ActionListener() {
@@ -161,10 +163,10 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnVerEstadioActionPerformed(evt);
             }
         });
-        jMenu7.add(mnVerEstadio);
+        mnMostrarRegistros.add(mnVerEstadio);
 
         mnVerPersonas.setText("Persona");
-        jMenu7.add(mnVerPersonas);
+        mnMostrarRegistros.add(mnVerPersonas);
 
         mnVerPartidos.setText("Partido");
         mnVerPartidos.addActionListener(new java.awt.event.ActionListener() {
@@ -172,23 +174,33 @@ public class GUISistemaPartido extends javax.swing.JFrame {
                 mnVerPartidosActionPerformed(evt);
             }
         });
-        jMenu7.add(mnVerPartidos);
+        mnMostrarRegistros.add(mnVerPartidos);
 
-        jMenuBar1.add(jMenu7);
+        jMenuBar1.add(mnMostrarRegistros);
 
-        jMenu2.setText("Vender Boleto");
-        jMenuBar1.add(jMenu2);
-
-        mnApuestas.setText("Apuestas");
-        jMenuBar1.add(mnApuestas);
-
-        jMenu1.setText("Autores");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnVenderBoletos.setText("Vender Boleto");
+        mnVenderBoletos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                mnVenderBoletosMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(mnVenderBoletos);
+
+        mnApuestas.setText("Apuestas");
+        mnApuestas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnApuestasMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(mnApuestas);
+
+        mnAutores.setText("Autores");
+        mnAutores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnAutoresMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(mnAutores);
 
         setJMenuBar(jMenuBar1);
 
@@ -206,20 +218,19 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenu1MouseClicked
-    {//GEN-HEADEREND:event_jMenu1MouseClicked
+    private void mnAutoresMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_mnAutoresMouseClicked
+    {//GEN-HEADEREND:event_mnAutoresMouseClicked
         // TODO add your handling code here:
         DesignPreview.setVisible(true);
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_mnAutoresMouseClicked
 
-    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jMenuItem2MouseClicked
-    {//GEN-HEADEREND:event_jMenuItem2MouseClicked
+    private void mnIngresarPersonaMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_mnIngresarPersonaMouseClicked
+    {//GEN-HEADEREND:event_mnIngresarPersonaMouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jMenuItem2MouseClicked
+    }//GEN-LAST:event_mnIngresarPersonaMouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem2ActionPerformed
-    {//GEN-HEADEREND:event_jMenuItem2ActionPerformed
+    private void mnIngresarPersonaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_mnIngresarPersonaActionPerformed
+    {//GEN-HEADEREND:event_mnIngresarPersonaActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
         pnlRegistrarPersonas.setVisible(true);
@@ -227,7 +238,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         add(pnlRegistrarPersonas);
         revalidate();
         repaint();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mnIngresarPersonaActionPerformed
 
 
     private void mnIngresarEstadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIngresarEstadioActionPerformed
@@ -247,7 +258,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlRegistrarPartido.actualizarListaEquipos();
         pnlRegistrarPartido.actualizarListaEquiposGanadores();
         pnlRegistrarPartido.actualizarListaEstadios();
-        
+
         limpiarGUI();
         pnlRegistrarPartido.setVisible(true);
         pnlRegistrarPartido.setSize(500, 500);
@@ -260,7 +271,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlRegistrarEquipo.setVisible(true);
-        pnlRegistrarEquipo.setSize(500,500);
+        pnlRegistrarEquipo.setSize(500, 500);
         add(pnlRegistrarEquipo);
         revalidate();
         repaint();
@@ -271,7 +282,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerPartido.setVisible(true);
-        pnlVerPartido.setSize(500,500);
+        pnlVerPartido.setSize(500, 500);
         add(pnlVerPartido);
         revalidate();
         repaint();
@@ -283,22 +294,44 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerEstadios.setVisible(true);
-        pnlVerEstadios.setSize(500,500);
+        pnlVerEstadios.setSize(500, 500);
         add(pnlVerEstadios);
         revalidate();
         repaint();
-        
+
     }//GEN-LAST:event_mnVerEstadioActionPerformed
 
     private void mnVerEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnVerEquiposActionPerformed
         // TODO add your handling code here:
         limpiarGUI();
         pnlVerEquipo.setVisible(true);
-        pnlVerEquipo.setSize(700,700);
+        pnlVerEquipo.setSize(700, 700);
         add(pnlVerEquipo);
         revalidate();
         repaint();
     }//GEN-LAST:event_mnVerEquiposActionPerformed
+
+    private void mnVenderBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnVenderBoletosMouseClicked
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlVenderBoletos.setVisible(true);
+        pnlVenderBoletos.setSize(700, 700);
+        add(pnlVenderBoletos);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_mnVenderBoletosMouseClicked
+
+    private void mnApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnApuestasMouseClicked
+        // TODO add your handling code here:
+        limpiarGUI();
+        pnlApuestas.setVisible(true);
+        pnlApuestas.setSize(700, 700);
+        add(pnlApuestas);
+        revalidate();
+        repaint();
+
+    }//GEN-LAST:event_mnApuestasMouseClicked
 
     private void limpiarGUI() {
         pnlRegistrarPersonas.setVisible(false);
@@ -308,12 +341,8 @@ public class GUISistemaPartido extends javax.swing.JFrame {
         pnlVerEquipo.setVisible(false);
         pnlVerEstadios.setVisible(false);
         pnlVerPartido.setVisible(false);
-        
-
     }
 
-
-    
     /**
      * @param args the command line arguments
      */
@@ -350,25 +379,25 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JMenu mnApuestas;
+    private javax.swing.JMenu mnAutores;
+    private javax.swing.JMenu mnIngresar;
     private javax.swing.JMenuItem mnIngresarEquipo;
     private javax.swing.JMenuItem mnIngresarEstadio;
     private javax.swing.JMenuItem mnIngresarPartido;
+    private javax.swing.JMenuItem mnIngresarPersona;
+    private javax.swing.JMenu mnMostrarRegistros;
+    private javax.swing.JMenu mnVenderBoletos;
     private javax.swing.JMenuItem mnVerEquipos;
     private javax.swing.JMenuItem mnVerEstadio;
     private javax.swing.JMenuItem mnVerPartidos;
     private javax.swing.JMenuItem mnVerPersonas;
-    private javax.swing.JMenu nuevo;
     // End of variables declaration//GEN-END:variables
 }
