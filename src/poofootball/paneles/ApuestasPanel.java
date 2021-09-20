@@ -359,7 +359,6 @@ public class ApuestasPanel extends javax.swing.JPanel {
         txtCI.setText(null);
         txtNombre.setText(null);
         txtValor.setText(null);
-        
     }
     
     private void lblErrorCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblErrorCedulaKeyReleased
