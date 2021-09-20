@@ -22,9 +22,14 @@ public class Apuesta {
     public Apuesta(double montoApuesta) {
         this.montoApuesta = montoApuesta;
         this.partidos = new ArrayList<>();
+        this.personas = new ArrayList<>();
     }
     
     public void agregarPartido(Partido p){
         this.partidos.add(p);
+    }
+    
+    public void agregarPersona(Persona p){
+        this.personas.add(p);
     }
 }

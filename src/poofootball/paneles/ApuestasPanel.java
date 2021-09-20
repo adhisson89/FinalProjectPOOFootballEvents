@@ -7,6 +7,7 @@ package poofootball.paneles;
 
 import finalprojectpoofootballevents.Equipo;
 import finalprojectpoofootballevents.Partido;
+import finalprojectpoofootballevents.Persona;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +15,15 @@ import javax.swing.JOptionPane;
  * @author Adhisson
  */
 public class ApuestasPanel extends javax.swing.JPanel {
-
+    
+    Persona persona;
     /**
      * Creates new form ApuestasPanel
      */
     public ApuestasPanel() {
         initComponents();
         btnCrearApuesta.setEnabled(false);
+        txtNombre.setEnabled(false);
     }
     
     public void actualizarListaPartidos(){
@@ -61,8 +64,10 @@ public class ApuestasPanel extends javax.swing.JPanel {
         cmbPartidos = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCI = new javax.swing.JTextField();
         btnBuscarPersona = new javax.swing.JButton();
+        lblPersonaNoEncontrada = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txtValor = new javax.swing.JTextField();
@@ -85,9 +90,16 @@ public class ApuestasPanel extends javax.swing.JPanel {
         jLabel6.setText("Buscar Persona por CI:");
 
         btnBuscarPersona.setText("Buscar");
+        btnBuscarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPersonaActionPerformed(evt);
+            }
+        });
 
-        jLabel7.setForeground(java.awt.Color.red);
-        jLabel7.setText("La persona no ha sido encontrada");
+        lblPersonaNoEncontrada.setForeground(java.awt.Color.red);
+        lblPersonaNoEncontrada.setText("La persona no ha sido encontrada");
+
+        jLabel7.setText("Nombre:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -96,22 +108,28 @@ public class ApuestasPanel extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(27, 27, 27)
-                        .addComponent(cmbPartidos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbPartidos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel7)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                                .addComponent(btnBuscarPersona)))))
+                                .addComponent(btnBuscarPersona))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPersonaNoEncontrada)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(41, 41, 41))
         );
         jPanel2Layout.setVerticalGroup(
@@ -120,15 +138,19 @@ public class ApuestasPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarPersona))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addGap(10, 10, 10)
+                .addComponent(lblPersonaNoEncontrada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cmbPartidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de la Apuesta"));
@@ -262,6 +284,20 @@ public class ApuestasPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnCrearApuestaActionPerformed
 
+    private void btnBuscarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonaActionPerformed
+        // TODO add your handling code here:
+        persona = Persona.buscarPersonaPorCI(GUISistemaPartido.listaPersonasRegistradas, txtCI.getText());
+        
+        if(persona == null){
+            lblPersonaNoEncontrada.setVisible(true);
+        } else {
+            txtNombre.setText(persona.getNombre() + " "+ persona.getApellido());
+            lblPersonaNoEncontrada.setVisible(false);
+        }
+        
+        
+    }//GEN-LAST:event_btnBuscarPersonaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarPersona;
@@ -282,7 +318,9 @@ public class ApuestasPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblPersonaNoEncontrada;
+    private javax.swing.JTextField txtCI;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
