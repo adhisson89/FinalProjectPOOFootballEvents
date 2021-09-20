@@ -28,6 +28,7 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
         initComponents();
         lblErrorCedula.setVisible(false);
         btnVenderBoleto.setEnabled(false);
+        actualizarListaPartidos();
     }
 
     /**
@@ -217,6 +218,12 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
 
     private void cmbBuscarPartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBuscarPartidosActionPerformed
         // TODO add your handling code here:
+        actualizarListaPartidos();
+        if(cmbBuscarPartidos.getSelectedIndex() == -1){
+            btnVenderBoleto.setEnabled(false);
+        } else {
+            btnVenderBoleto.setEnabled(false);
+        }
     }//GEN-LAST:event_cmbBuscarPartidosActionPerformed
 
     private void btnVenderBoletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderBoletoActionPerformed
@@ -226,7 +233,7 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
         try (MiObjectOutputStream salida = new MiObjectOutputStream("registroBoletos.txt");) {
             salida.writeObject(new Boleto(GUISistemaPartido.listaBoletosVendidos.size() + 1, persona.getEdad()));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
-            
+            salida.close();
         } catch (IOException ioe) {
             System.err.println("No se creo la persona" + ioe);
         }
@@ -236,7 +243,7 @@ public class VenderBoletosPanel extends javax.swing.JPanel {
         cmbBuscarPartidos.removeAllItems();
         try {
             for (Partido par : GUISistemaPartido.listaPartidosRegistrados) {
-                cmbBuscarPartidos.addItem(par.getEquipo1() + " Vs. " + par.getEquipo2());
+                cmbBuscarPartidos.addItem(par.getEquipo1().getNombre() + " Vs. " + par.getEquipo2().getNombre());
             }
         } catch (Exception e) {
 

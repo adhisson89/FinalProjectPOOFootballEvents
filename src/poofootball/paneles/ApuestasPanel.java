@@ -32,13 +32,15 @@ public class ApuestasPanel extends javax.swing.JPanel {
         txtNombre.setEnabled(false);
         lblErrorCedula.setVisible(false);
         lblErrorValor.setVisible(false);
+        actualizarListaEquipos();
+        actualizarListaPartidos();
     }
     
     public void actualizarListaPartidos() {
         cmbPartidos.removeAllItems();
         try {
             for (Partido par : GUISistemaPartido.listaPartidosRegistrados) {
-                cmbPartidos.addItem(par.getEquipo1() + " Vs. " + par.getEquipo2());
+                cmbPartidos.addItem(par.getEquipo1().getNombre() + " Vs. " + par.getEquipo2().getNombre());
             }
         } catch (Exception e) {
             
@@ -328,6 +330,7 @@ public class ApuestasPanel extends javax.swing.JPanel {
         try (MiObjectOutputStream salida = new MiObjectOutputStream("registroApuestas.txt");) {
             salida.writeObject(nuevaApuesta);
             JOptionPane.showMessageDialog(null, "La apuesta se realizó correctamente");
+            salida.close();
         } catch (IOException ioe) {
             System.err.println("No se creo la apuesta" + ioe);
         }
@@ -352,10 +355,10 @@ public class ApuestasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (Validadores.validadorDigitos(txtCI.getText())) {
             lblErrorValor.setVisible(false);
-            btnBuscarPersona.setEnabled(true);
+            btnCrearApuesta.setEnabled(true);
         } else {
             lblErrorValor.setVisible(true);
-            btnBuscarPersona.setEnabled(false);
+            btnCrearApuesta.setEnabled(false);
         }
     }//GEN-LAST:event_txtValorKeyReleased
 

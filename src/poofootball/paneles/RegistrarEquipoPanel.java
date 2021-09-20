@@ -160,6 +160,7 @@ public class RegistrarEquipoPanel extends javax.swing.JPanel {
         try ( MiObjectOutputStream salida = new MiObjectOutputStream("registroEquipos.txt");) {
             salida.writeObject(new Equipo(txtNombreEquipo.getText(), txtAnioFundacion.getText()));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
+            salida.close();
         } catch (IOException ioe) {
             System.err.println("No se creo el equipo" + ioe);
         }    

@@ -233,7 +233,7 @@ public class RegistrarPersonasPanel extends javax.swing.JPanel {
             salida.writeObject(new Persona(txtNombre.getText(),
                 txtApellido.getText(), txtCI.getText(), Integer.parseInt(txtEdad.getText())));
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
-            
+            salida.close();
         } catch (IOException ioe) {
             System.err.println("No se creo la persona" + ioe);
         }

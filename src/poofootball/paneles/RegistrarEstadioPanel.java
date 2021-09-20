@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Adhisson
  */
 public class RegistrarEstadioPanel extends javax.swing.JPanel {
-
+    Estadio nuevoEstadio;
     /**
      * Creates new form RegistrarEstadioPanel
      */
@@ -170,14 +170,13 @@ public class RegistrarEstadioPanel extends javax.swing.JPanel {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        GUISistemaPartido.listaEstadiosRegistrados.add(new Estadio(txtCapacidad.getText(),
-                txtCiudad.getText(), txtNombre.getText()));
+        nuevoEstadio = new Estadio(txtCapacidad.getText(), txtCiudad.getText(), txtNombre.getText());
+        GUISistemaPartido.listaEstadiosRegistrados.add(nuevoEstadio);
         limpiarPanel();
         try ( MiObjectOutputStream salida = new MiObjectOutputStream("registroEstadios.txt");) {
-            salida.writeObject(new Estadio(txtCapacidad.getText(),
-                txtCiudad.getText(), txtNombre.getText()));
+            salida.writeObject(nuevoEstadio);
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
-            
+            salida.close();
         } catch (IOException ioe) {
             System.err.println("No se creo el estadio" + ioe);
         }

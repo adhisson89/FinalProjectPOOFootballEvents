@@ -341,6 +341,7 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     private void mnVenderBoletosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnVenderBoletosMouseClicked
         // TODO add your handling code here:
         limpiarGUI();
+        pnlVenderBoletos.actualizarListaPartidos();
         pnlVenderBoletos.setVisible(true);
         pnlVenderBoletos.setSize(683, 459);
         pnlVenderBoletos.setLocation(350, 100);
@@ -353,10 +354,11 @@ public class GUISistemaPartido extends javax.swing.JFrame {
     private void mnApuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnApuestasMouseClicked
         // TODO add your handling code here:
         limpiarGUI();
+        pnlApuestas.actualizarListaEquipos();
+        pnlApuestas.actualizarListaPartidos();
         pnlApuestas.setVisible(true);
         pnlApuestas.setSize(490, 485);
         pnlApuestas.setLocation(350, 100);
-        
         add(pnlApuestas);
         revalidate();
         repaint();

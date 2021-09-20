@@ -37,6 +37,11 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         setTitle("Design Preview [GUI]");
 
         btnAdhisson.setText("Adhisson Cedeño");
+        btnAdhisson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdhissonActionPerformed(evt);
+            }
+        });
 
         btnDaniela.setText("Daniela Román");
         btnDaniela.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +94,11 @@ public class DesignPreviewGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(rootPane, "Hola, mi usuario de Github es joseguzmann\n https://github.com/joseguzmann");
     }//GEN-LAST:event_btnJoseActionPerformed
+
+    private void btnAdhissonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdhissonActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane,"Hola, mi usuario de GitHub es adhisson89" );
+    }//GEN-LAST:event_btnAdhissonActionPerformed
 
     /**
      * @param args the command line arguments

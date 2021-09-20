@@ -293,6 +293,7 @@ public class RegistrarPartidoPanel extends javax.swing.JPanel {
         try (MiObjectOutputStream salida = new MiObjectOutputStream("registroPartidos.txt");) {
             salida.writeObject(partido);
             JOptionPane.showMessageDialog(null, "Se registró correctamente");
+            salida.close();
             
         } catch (IOException ioe) {
             System.err.println("No se creo el partido" + ioe);
